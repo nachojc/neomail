@@ -1,0 +1,81 @@
+<!-- <div id="message" class="updated notice is-dismissible">
+    <p>El plugin ha sido <strong>activado</strong>.</p>
+    <button type="button" class="notice-dismiss">
+        <span class="screen-reader-text">Descartar este aviso.</span>
+    </button>
+</div> -->
+<div>
+    <h2>Lists <a class="page-title-action" href="#/new">Add new list</a></h2>
+</div>
+<div class="body-content full">
+    <ul class="subsubsub">
+        <li class="current"><a href="?page=lists">Todos&nbsp;<span class="count">({{TOTAL}})</span></a></li>
+        <li class=""><a href="?page=lists&trash=true">Papelera&nbsp;<span class="count">({{DELETED}})</span></a></li>
+        
+    </ul>
+    <div class="tablenav top clearfix">
+        <div class="alignleft actions bulkactions">
+            <label class="screen-reader-text" for="bulk-action-selector-top">Seleccionar acción en bloque</label>
+            <select name="bulk_actions">
+                <option value="">Acciones en lote</option>
+                <option value="trash">Mover a la papelera</option>
+            </select>
+            <input type="submit" class="button action" value="Aplicar">
+        </div>
+        <div class="alignleft actions actions"></div>
+        <div class="tablenav-pages one-page"><span class="displaying-num">{{TOTAL}} elementos</span></div>
+    </div>
+    <table class="wp-list-table widefat fixed striped">
+        <thead>
+            <tr>
+                <th class="manage-column column-cb check-column" role="columnheader"><input class="select_all" type="checkbox"
+                        name="select_all"></th>
+                <th class="manage-column column-primary sortable asc sorted" role="columnheader"><a><span>Name</span><span
+                            class="sorting-indicator"></span></a></th>
+                <th class="manage-column" role="columnheader">Description</th>
+                <th class="manage-column" role="columnheader">Subscriptors</th>
+                <th class="manage-column" role="columnheader">Unconfirmed</th>
+                <th class="manage-column" role="columnheader">Unsubscribed</th>
+                <th class="manage-column sortable asc sorted" role="columnheader"><a><span>Create at</span><span class="sorting-indicator"></span></a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{REPEAT}}
+            <tr data-id="item_{{id}}">
+                <th class="check-column" scope="row">
+                    <input type="checkbox" value="{{id}}">
+                </th>
+                <td class="manage-column column-primary has-row-actions">
+                    <strong><a class="row-title" href="#/edit/{{id}}">{{name}}</a></strong>
+                    <div>
+                        <div class="row-actions"><span class="edit">
+                            <a href="#/edit/{{id}}">Editar</a></span>
+                            <span class="copy"> | <a href="#/copy/{{id}}">Duplicar</a></span>
+                            <span class="view"> | <a href="#/view/{{id}}">Ver suscriptores</a></span>
+                            <span class="trash"> | <a href="#/del/{{id}}">Mover a la papelera</a></span>
+                        </div>
+                    </div>
+                </td>
+                <td class="column-date" data-colname="Descripción"><abbr>{{description}}</abbr></td>
+                <td class="column-date" data-colname="Suscritos"><abbr>0</abbr></td>
+                <td class="column-date" data-colname="No confirmados"><abbr>0</abbr></td>
+                <td class="column-date" data-colname="Rebotados"><abbr>0</abbr></td>
+                <td class="column-date" data-colname="Creado el"><abbr>{{created_at}}</abbr></td>
+            </tr>
+            {{REPEAT}}
+        </tbody>
+        <tfoot>
+                <tr>
+                    <th class="manage-column column-cb check-column" role="columnheader"><input class="select_all" type="checkbox"
+                            name="select_all"></th>
+                    <th class="manage-column column-primary sortable asc sorted" role="columnheader"><a><span>Name</span><span
+                                class="sorting-indicator"></span></a></th>
+                    <th class="manage-column" role="columnheader">Description</th>
+                    <th class="manage-column" role="columnheader">Subscriptors</th>
+                    <th class="manage-column" role="columnheader">Unconfirmed</th>
+                    <th class="manage-column" role="columnheader">Unsubscribed</th>
+                    <th class="manage-column sortable asc sorted" role="columnheader"><a><span>Create at</span><span class="sorting-indicator"></span></a></th>
+                </tr>
+        </tfoot>
+    </table>
+</div>
