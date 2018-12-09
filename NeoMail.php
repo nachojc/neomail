@@ -20,12 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Invalid request.' );
 }
 
-use NeoMail\Utils\Menus;
+use NeoMail\Utils\Initializer;
 
 if ( ! class_exists( 'NeoMail' ) ) {
     $neomail_plugin = array(
         'version' => '0.1',
-        'filename' => __FILE__,
+        'file' => __FILE__,
         'path' => dirname(__FILE__),
         'autoloader' => dirname(__FILE__) . '/inc/autoloader.php'
     );
@@ -38,7 +38,7 @@ if ( ! class_exists( 'NeoMail' ) ) {
             register_activation_hook( __FILE__, array( __CLASS__, 'activate' ) );
             register_uninstall_hook( __FILE__, array( __CLASS__, 'uninstall' ) );
 
-            $menu = new Menus();
+            $app = new Initializer();
         }
     
         /**

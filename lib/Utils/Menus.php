@@ -41,7 +41,7 @@ class Menus{
     }
 
     function init(){
-        $this->load_Css();
+        // $this->load_Css();
         $this->add_filters();
     }
 
@@ -59,10 +59,10 @@ class Menus{
     }
 
 
-    function load_Css(){
-        $css_loader = new CSS_Loader();
-        $css_loader->init();
-    }
+    // function load_Css(){
+    //     $css_loader = new CSS_Loader();
+    //     $css_loader->init();
+    // }
 
     function register_js(){
         if (!is_admin() ) return;

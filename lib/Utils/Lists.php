@@ -49,16 +49,15 @@ class Lists extends Commonview {
   // API
   function getLists($request){
     global $wpdb; parent::init(self::PARAM);
+    
     $filter = '';
     $p = $request->get_param('p');
     $p = $p == null ? 1 : (int)$p;
     if ($p > -1){
-      $page = DB::getOption('neomail_'.self::PARAM.'_per_page'); //self::$per_page || 20;
+      $page = (int)DB::getOption('neomail_'.self::PARAM.'_per_page'); 
       $off = max( $page * ((int)$p - 1), 0);
       $filter = ' LIMIT '. $page .' OFFSET '. $off;
     }
-
-
 
     $query = 'SELECT id,name FROM `'. self::$table . '`' . $filter . ';';
     return wp_send_json($wpdb->get_results($query));
