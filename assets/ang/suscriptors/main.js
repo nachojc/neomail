@@ -213,7 +213,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul>\n  <li><label for=\"search\">Buscar</label></li>\n  <li><input type=\"text\" name=\"search\" id=\"search\"></li>\n  <li><select [(ngModel)]=\"search.list\">\n      <option *ngFor=\"let item of listSelection\" [value]=\"item.value\">{{item.name}}</option>\n  </select></li>\n  <li>Status</li>\n  <li class=\"push\"><select [(ngModel)]=\"search.status\">\n      <option *ngFor=\"let item of status\" [value]=\"item.value\">{{item.name}}</option>\n  </select></li>\n  <li><button class=\"button-secondary action\" (click)=\"searchClick()\">Buscar</button></li>\n</ul> "
+module.exports = "<ul>\n  <li><label for=\"search\">Buscar</label></li>\n  <li><input type=\"text\" name=\"search\" id=\"search\" [(ngModel)]=\"search.search\"></li>\n  <li><select [(ngModel)]=\"search.list\">\n      <option *ngFor=\"let item of listSelection\" [value]=\"item.id\">{{item.name}}</option>\n  </select></li>\n  <li>Status</li>\n  <li class=\"push\"><select [(ngModel)]=\"search.status\">\n      <option *ngFor=\"let item of status;\" [value]=\"item.value\">{{item.name}}</option>\n  </select></li>\n  <li><button class=\"button-secondary action\" (click)=\"searchClick()\">Buscar</button></li>\n</ul> "
 
 /***/ }),
 
@@ -253,31 +253,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var StringIsNumber = function (value) { return isNaN(Number(value)) === false; };
 var SearchComponent = /** @class */ (function () {
     function SearchComponent(lists) {
         this.lists = lists;
-        this.status = Object.keys(src_app_enums_listStatus__WEBPACK_IMPORTED_MODULE_2__["ListStatusEnum"])
-            .filter(StringIsNumber)
-            .map(function (key) {
-            // console.log(ListStatusEnum[key]);
-            return src_app_enums_listStatus__WEBPACK_IMPORTED_MODULE_2__["ListStatusEnum"][key];
-        });
-        this.search = {};
-        this.users = [
-            { 'name': 'Yo', },
-        ];
+        this.search = { list: 0, status: -1, search: '' };
+        this.status = src_app_enums_listStatus__WEBPACK_IMPORTED_MODULE_2__["ListStatusEnum"];
     }
     SearchComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log(this.status);
         this.lists$ = this.lists.getLists(-1).subscribe(function (data) { _this.changeListSelction(data); });
     };
     SearchComponent.prototype.ngOnDestroy = function () {
         this.lists$.unsubscribe();
     };
     SearchComponent.prototype.changeListSelction = function (data) {
-        this.listSelection = [{ id: 0, name: 'Todos' }].concat(data);
+        this.listSelection = [{ id: '0', name: 'Todos' }].concat(data);
+    };
+    SearchComponent.prototype.searchClick = function () {
+        console.log(this.search);
     };
     SearchComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({

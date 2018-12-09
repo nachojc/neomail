@@ -3,13 +3,13 @@ namespace NeoMail\Utils;
 if(!defined('ABSPATH')) exit;
 
 class Api{
-    function init(){
+    static function init(){
 
         add_action('rest_api_init', function(){
             self::registrar_endpoints();
         });
     }
-    function registrar_endpoints(){
+    static function registrar_endpoints(){
         register_rest_route(
             'neomail/v1', // namespace
             '/list', // ruta

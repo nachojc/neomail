@@ -20,8 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Invalid request.' );
 }
 
-use NeoMail\Utils\Initializer;
-
 if ( ! class_exists( 'NeoMail' ) ) {
     $neomail_plugin = array(
         'version' => '0.1',
@@ -35,25 +33,13 @@ if ( ! class_exists( 'NeoMail' ) ) {
         private function __construct() {}
 
         public static function init_actions() {
-            register_activation_hook( __FILE__, array( __CLASS__, 'activate' ) );
-            register_uninstall_hook( __FILE__, array( __CLASS__, 'uninstall' ) );
-
-            $app = new Initializer();
+            
+            $app = new NeoMail\Utils\Initializer();
         }
-    
-        /**
-         * Activation.
-         */
-        public static function activate() {
-        }
-
-        /**
-         * Uninstall.
-         */
-        public static function uninstall() {
-        }
+        
     }
 
-
     add_action( 'plugins_loaded', array( 'NeoMail', 'init_actions' ) );
+
+    // add_action( 'admin_init',array( 'NeoMail', 'init_admin_actions' ) );
 }

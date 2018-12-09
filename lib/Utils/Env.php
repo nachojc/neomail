@@ -33,8 +33,6 @@ class Env {
 
         self::$db_prefix = $wpdb->prefix . self::$plugin_name . '_';
 
-        // var_dump($config['file']);
-        // die();
     }
 
 }

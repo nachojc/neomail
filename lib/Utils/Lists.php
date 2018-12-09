@@ -7,44 +7,13 @@ class Lists extends Commonview {
 
   function init($env = 'lists'){
     parent::init($env);
-    self::loadView($env);
-
-    $total =  self::getTotal()[0]['total'];
-    $del = self::getTotal()[1]['total'];
-    // die(var_dump());
-    self::replaceInView('TOTAL', $total);
-    self::replaceInView('DELETED', $del);
-
-    self::parseData(self::getResults(), self::$repeat);
-
-    echo self::getFullView();
-    wp_enqueue_script('neomail_js_'.self::PARAM);
-  }
-
-  private function parseData($data, &$template){
-    $tmp_Data = '';
-    foreach ($data as $result) {
-      $tmp = $template;
-      $tmp_Data .= self::replaceObj($result, $tmp);
-    }
-
-    $template = $tmp_Data;
-  }
-  
-  private function getTotal(){
-    global $wpdb;
-    return $wpdb->get_results( "SELECT COUNT(Id) as 'total' FROM ". self::$table ." GROUP BY deleted ORDER BY deleted ASC", ARRAY_A );
-  }
-  
-  private function getResults() {
-    global $wpdb;
-
-    $trash = ( array_key_exists("trash", $_GET) && trim($_GET['trash'])=='true' ) ? '1' : '0';
-    $cond = " WHERE deleted=" . $trash; 
     
-    $query = "SELECT * FROM ". self::$table . $cond ." ORDER BY name ASC LIMIT " . self::$per_page;
-    return $wpdb->get_results( $query );
+
+    echo 'Lists';
+   
   }
+
+  
 
   // API
   function getLists($request){
