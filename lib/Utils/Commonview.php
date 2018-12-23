@@ -9,7 +9,7 @@ class Commonview{
     static $repeat;
 
 
-    public function init($env = ''){
+    static public function init($env = ''){
         self::$repeat = '';
         self::$table = Env::$db_prefix . DB::TABLES[$env];
         self::$per_page = get_user_meta(

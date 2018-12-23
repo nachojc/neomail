@@ -357,7 +357,7 @@ var TableRowComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table>\n  <thead *ngFor=\"let item of headers\"></thead>\n  <tbody *ngFor=\"let item of list\"></tbody>\n  <tfoot *ngFor=\"let item of headers\"></tfoot>\n</table>"
+module.exports = "<table class=\"wp-list-table widefat fixed\">\n  <thead>\n    <tr>\n      <ng-container *ngFor=\"let item of dto.header\">\n          <ng-container *ngIf=\"item.type == 'radio' else header\" >\n              <th  class=\"manage-column column-cb check-column\">\n                  <label class=\"screen-reader-text\" for=\"select_all\">Seleccionar todos</label>\n                  <input type=\"checkbox\" name=\"select_all\" id=\"select_all\">\n              </th>\n          </ng-container>\n          <ng-template #header>\n            <ng-container *ngIf=\"item.sort else description\">\n              <th role=\"columnheader\" class=\"manage-column column-primary sortable desc\" scope=\"col\"><a role=\"button\" tabindex=\"0\"><span>{{item.name}}</span><span class=\"sorting-indicator\"></span></a></th>\n            </ng-container>\n          </ng-template>\n          <ng-template #description>\n              <th role=\"columnheader\" class=\"manage-column desc\" scope=\"col\">{{item.name}}</th>\n          </ng-template>\n      </ng-container>\n    </tr>\n  </thead>\n  <tbody>\n      <ng-container *ngFor=\"let item of dto.data\">\n        <tr *ngIf=\"item.length\">\n          <td *ngFor=\"let val of item\"></td>\n        </tr>\n      </ng-container>\n\n      <tr>\n        <td class=\"check-column\"><input type=\"checkbox\" name=\"select_all\" id=\"select_all\"></td>\n        <td class=\"manage-column column-primary has-row-actions column-username\"><strong><a class=\"row-title\" href=\"#/edit/1\">nachojc@ipsoft.es</a></strong><p style=\"margin: 0px;\">nachojc </p><div><div class=\"row-actions\"><span class=\"edit\"><a href=\"#/edit/1\">Editar</a></span></div><button class=\"toggle-row\" type=\"button\"><span class=\"screen-reader-text\">Mostrar más detalles</span></button></div></td>\n        <td>a</td>\n        <td>a</td>\n        <td>a</td>\n        <td>a</td>\n      </tr>\n\n\n  </tbody>\n  <tfoot>\n      <tr>\n          <ng-container *ngFor=\"let item of dto.header\">\n              <ng-container *ngIf=\"item.type == 'radio' else header\" >\n                  <th  class=\"manage-column column-cb check-column\">\n                      <input type=\"checkbox\" name=\"select_all\" id=\"select_all\">\n                  </th>\n              </ng-container>\n              <ng-template #header>\n                <ng-container *ngIf=\"item.sort else description\">\n                  <th role=\"columnheader\" class=\"manage-column column-primary sortable desc\" scope=\"col\"><a role=\"button\" tabindex=\"0\"><span>{{item.name}}</span><span class=\"sorting-indicator\"></span></a></th>\n                </ng-container>\n              </ng-template>\n              <ng-template #description>\n                  <th role=\"columnheader\" class=\"manage-column desc\" scope=\"col\">{{item.name}}</th>\n              </ng-template>\n          </ng-container>\n        </tr>\n  </tfoot>\n</table>"
 
 /***/ }),
 
@@ -368,7 +368,7 @@ module.exports = "<table>\n  <thead *ngFor=\"let item of headers\"></thead>\n  <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdGFibGUvdGFibGUuY29tcG9uZW50LnNjc3MifQ== */"
+module.exports = ":host() table {\n  width: 100%; }\n  :host() table th.check-column, :host() table td.check-column {\n    width: 2.2em;\n    padding: 8px;\n    vertical-align: top; }\n  :host() table th.check-column input, :host() table td.check-column input {\n      margin: 0 0 0 8px;\n      padding: 0;\n      vertical-align: text-top; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93ZWIvcGhwL0FuZ3VsYXIvc3VzY3JpcHRvcnMvc3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRVEsWUFBVyxFQVlkO0VBZEw7SUFLWSxhQUFZO0lBQ1osYUFBWTtJQUNaLG9CQUFtQixFQU10QjtFQWJUO01BU2dCLGtCQUFpQjtNQUNqQixXQUFVO01BQ1YseUJBQXdCLEVBQzNCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy90YWJsZS90YWJsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0KCl7XG4gICAgdGFibGV7XG4gICAgICAgIHdpZHRoOiAxMDAlO1xuXG4gICAgICAgIHRoLmNoZWNrLWNvbHVtbiwgdGQuY2hlY2stY29sdW1ue1xuICAgICAgICAgICAgd2lkdGg6IDIuMmVtO1xuICAgICAgICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgICAgICAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgICAgICAgICAgIGlucHV0e1xuICAgICAgICAgICAgICAgIG1hcmdpbjogMCAwIDAgOHB4O1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgICAgICAgICAgdmVydGljYWwtYWxpZ246IHRleHQtdG9wO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxufSJdfQ== */"
 
 /***/ }),
 
@@ -395,11 +395,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var TableComponent = /** @class */ (function () {
     function TableComponent() {
+        this.dto = { header: [], data: [{}] };
         this.headers = [];
         this.list = [];
     }
+    Object.defineProperty(TableComponent.prototype, "data", {
+        set: function (data) {
+            this.dto = data;
+        },
+        enumerable: true,
+        configurable: true
+    });
     TableComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], TableComponent.prototype, "data", null);
     TableComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'neo-table',
@@ -506,7 +519,7 @@ var AddUserComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<neo-search></neo-search>\n\n<neo-table></neo-table>"
+module.exports = "<neo-search></neo-search>\n<neo-table [data]=\"dto\"></neo-table>"
 
 /***/ }),
 
@@ -547,9 +560,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var MainComponent = /** @class */ (function () {
     function MainComponent(lists) {
         this.lists = lists;
-        this.users = [
-            { 'name': 'Yo', },
-        ];
+        this.dto = {
+            header: [
+                { name: 'Selector', sort: true, type: 'radio' },
+                { name: 'Suscriptor', sort: true },
+                { name: 'Estado', sort: true },
+                { name: 'Listas', sort: false },
+                { name: 'Suscrito en', sort: true },
+                { name: 'Última modificación', sort: true },
+            ],
+            data: [{}]
+        };
     }
     MainComponent.prototype.ngOnInit = function () {
     };

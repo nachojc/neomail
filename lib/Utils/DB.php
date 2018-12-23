@@ -87,12 +87,12 @@ class DB {
         )"                  
     );
 
-    function getOption($opt){
+    static function getOption($opt){
         global $wpdb;
 
         return $wpdb->get_var('SELECT `value` FROM `'. self::getTableName() .'` WHERE name="' . $opt .'"' ) ;
     }
-    function setOption($opt, $value){
+    static function setOption($opt, $value){
         global $wpdb;
         if (self::getOption($opt)!= null){
             $result = $wpdb->update(self::getTableName(), array('value' => $value), array('name' => $opt), array('%s'), array('%s'));
@@ -102,7 +102,7 @@ class DB {
         return $result;
     }
 
-    function getTableName(){
+    static function getTableName(){
         return Env::$db_prefix . DB::TABLES['settings'];
     }
 
