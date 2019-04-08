@@ -27,6 +27,16 @@ class Api{
                         'sanitize_callback' => function($param, $request, $key) {
                             return strip_tags( $param );
                         }
+                    ),
+                    'opt' => array(
+                        'sanitize_callback' => function($param, $request, $key) {
+                            return strip_tags( $param );
+                        }
+                    ),
+                    'del' => array(
+                        'sanitize_callback' => function($param, $request, $key) {
+                            return strip_tags( $param );
+                        }
                     )
                 )
             )

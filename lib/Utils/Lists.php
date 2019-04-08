@@ -24,11 +24,19 @@ class Lists extends Commonview {
   
 
   // API
+/**
+ *  params
+ * p default=0 , (-1 return all registers)
+ * opt = name
+ */
+
   static function getLists($request){
     global $wpdb; parent::init(self::PARAM);
     
     $filter = '';
     $p = $request->get_param('p');
+    $opt = $request->get_param('opt');
+    $del = $request->get_param('del');
     $p = $p == null ? 1 : (int)$p;
     if ($p > -1){
       $page = (int)DB::getOption('neomail_'.self::PARAM.'_per_page'); 
@@ -39,11 +47,19 @@ class Lists extends Commonview {
       $off = max( $page * ((int)$p - 1), 0);
       $filter = ' LIMIT '. $page .' OFFSET '. $off;
     }
-
+    $where=' WHERE '.(($del == 'true')?'NOT ':'').' A.deleted=0';
+    
     $tbl2=  Env::$db_prefix . DB::TABLES['relMailList'];
-    $query ='SELECT id, name, description, COALESCE(SUM(B.status ), 0) as status, COUNT( B.list_id) as total, A.created_at as date FROM '.self::$table.' A LEFT JOIN `'.$tbl2.'` B on A.id = B.list_id GROUP BY A.id '. $filter;
+    if($opt == null){
+      $query ='SELECT id, name, description, COALESCE(SUM(B.status ), 0) as status, COUNT( B.list_id) as total, A.created_at as date FROM '.self::$table
+          .' A LEFT JOIN `'.$tbl2.'` B on A.id = B.list_id '
+          .$where.' GROUP BY A.id '. $filter;
+    }else{
+      $query ='SELECT id, '.$opt.' FROM '.self::$table 
+          .$where .' ORDER BY name ASC '. $filter;
+    }
 
-    return wp_send_json( array('total'=> self::getTotal(),'attributes' => $wpdb->get_results($query)));
+    return wp_send_json( array('active'=> self::getTotal(),'deleted'=> self::getTotal(false),'attributes' => $wpdb->get_results($query)));
   }
   static function addElement($request){
     global $wpdb; parent::init(self::PARAM);
@@ -72,9 +88,9 @@ class Lists extends Commonview {
     return $wpdb->update(self::$table, array('deleted' => 1), array('id' => $id), array('%d'), array('%d'));
   }
 
-  static function getTotal(){
+  static function getTotal($active = true){
     global $wpdb; 
-
-    return $wpdb->get_var('SELECT COUNT(id) FROM '.self::$table);
+    $where = ' WHERE '.($active ? '':'NOT ').'deleted = 0';
+    return $wpdb->get_var('SELECT COUNT(id) FROM '.self::$table . $where);
   }
 }

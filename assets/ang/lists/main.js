@@ -288,12 +288,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_table_row_table_row_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/table-row/table-row.component */ "./src/app/components/table-row/table-row.component.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var libs_neo_lib_src_components_modal_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! libs/neo-lib/src/components/modal/modal.component */ "./libs/neo-lib/src/components/modal/modal.component.ts");
+/* harmony import */ var _components_table_header_table_header_table_header_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/table-header/table-header/table-header.component */ "./src/app/components/table-header/table-header/table-header.component.ts");
+/* harmony import */ var _components_table_nav_table_nav_table_nav_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/table-nav/table-nav/table-nav.component */ "./src/app/components/table-nav/table-nav/table-nav.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -318,7 +322,9 @@ var AppModule = /** @class */ (function () {
                 _components_add_list_add_list_component__WEBPACK_IMPORTED_MODULE_8__["AddListComponent"],
                 _components_table_table_component__WEBPACK_IMPORTED_MODULE_9__["TableComponent"],
                 _components_table_row_table_row_component__WEBPACK_IMPORTED_MODULE_10__["TableRowComponent"],
-                libs_neo_lib_src_components_modal_modal_component__WEBPACK_IMPORTED_MODULE_12__["ModalComponent"]
+                libs_neo_lib_src_components_modal_modal_component__WEBPACK_IMPORTED_MODULE_12__["ModalComponent"],
+                _components_table_header_table_header_table_header_component__WEBPACK_IMPORTED_MODULE_13__["TableHeaderComponent"],
+                _components_table_nav_table_nav_table_nav_component__WEBPACK_IMPORTED_MODULE_14__["TableNavComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -440,6 +446,142 @@ var AddListComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/table-header/table-header/table-header.component.html":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/table-header/table-header/table-header.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "  <ng-container *ngFor=\"let item of data\">\n    <ng-container *ngIf=\"item.type == 'radio' else header\" >\n      <th  class=\"manage-column column-cb check-column\">\n        <input type=\"checkbox\" name=\"select_all\" id=\"select_all\">\n      </th>\n    </ng-container>\n    <ng-template #header>\n      <ng-container *ngIf=\"item.sort else description\">\n        <th role=\"columnheader\" class=\"manage-column column-primary sortable desc {{item.type}}\" scope=\"col\">\n          <a role=\"button\" tabindex=\"0\">\n            <span>{{item.name}}</span>\n            <span class=\"sorting-indicator\"></span>\n          </a>\n        </th>\n      </ng-container>\n    </ng-template>\n    <ng-template #description>\n      <th role=\"columnheader\" scope=\"col\">{{item.name}}</th>\n    </ng-template>\n  </ng-container>"
+
+/***/ }),
+
+/***/ "./src/app/components/table-header/table-header/table-header.component.scss":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/table-header/table-header/table-header.component.scss ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: table-row;\n  vertical-align: inherit;\n  border-color: inherit;\n  border-spacing: 0; }\n  :host .check-column {\n    width: 2.2em;\n    padding: 8px;\n    vertical-align: top; }\n  :host .check-column input {\n      margin: 0 0 0 8px;\n      padding: 0;\n      vertical-align: text-top; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93ZWIvcGhwL0FuZ3VsYXIvbGlzdHMvc3JjL2FwcC9jb21wb25lbnRzL3RhYmxlLWhlYWRlci90YWJsZS1oZWFkZXIvdGFibGUtaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksbUJBQWtCO0VBQ2xCLHdCQUF1QjtFQUN2QixzQkFBcUI7RUFDckIsa0JBQWlCLEVBWXBCO0VBaEJEO0lBT1EsYUFBWTtJQUNaLGFBQVk7SUFDWixvQkFBbUIsRUFNdEI7RUFmTDtNQVdZLGtCQUFpQjtNQUNqQixXQUFVO01BQ1YseUJBQXdCLEVBQzNCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy90YWJsZS1oZWFkZXIvdGFibGUtaGVhZGVyL3RhYmxlLWhlYWRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0e1xuICAgIGRpc3BsYXk6IHRhYmxlLXJvdztcbiAgICB2ZXJ0aWNhbC1hbGlnbjogaW5oZXJpdDtcbiAgICBib3JkZXItY29sb3I6IGluaGVyaXQ7XG4gICAgYm9yZGVyLXNwYWNpbmc6IDA7XG5cbiAgICAuY2hlY2stY29sdW1ue1xuICAgICAgICB3aWR0aDogMi4yZW07XG4gICAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgICAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgICAgICAgaW5wdXR7XG4gICAgICAgICAgICBtYXJnaW46IDAgMCAwIDhweDtcbiAgICAgICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogdGV4dC10b3A7XG4gICAgICAgIH1cbiAgICB9XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/components/table-header/table-header/table-header.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/components/table-header/table-header/table-header.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: TableHeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableHeaderComponent", function() { return TableHeaderComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TableHeaderComponent = /** @class */ (function () {
+    function TableHeaderComponent() {
+    }
+    TableHeaderComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TableHeaderComponent.prototype, "data", void 0);
+    TableHeaderComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'neo-table-header',
+            template: __webpack_require__(/*! ./table-header.component.html */ "./src/app/components/table-header/table-header/table-header.component.html"),
+            styles: [__webpack_require__(/*! ./table-header.component.scss */ "./src/app/components/table-header/table-header/table-header.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], TableHeaderComponent);
+    return TableHeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/table-nav/table-nav/table-nav.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/table-nav/table-nav/table-nav.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"tablenav bottom\">\n  <div class=\"alignleft actions bulkactions\">\n    <ng-container *ngIf=\"status == 'actived' else deleted\" >\n      <select name=\"bulk_actions\">\n        <option value=\"\">Acciones en lote</option>\n        <option value=\"trash\">Mover a la papelera</option>\n      </select>\n    </ng-container>\n\n    <input type=\"submit\" class=\"button action\">\n  </div>\n  <div class=\"tablenav-pages\">\n    <span class=\"displaying-num\">3 elementos</span>\n    <span class=\"pagination-links\">\n      <span aria-hidden=\"true\" class=\"tablenav-pages-navspan\">«</span>&nbsp;\n      <span aria-hidden=\"true\" class=\"tablenav-pages-navspan\">‹</span>&nbsp;\n      <span class=\"paging-input\">\n        <label class=\"screen-reader-text\" for=\"current-page-selector\">Página Actual</label>\n        <input type=\"text\" aria-describedby=\"table-paging\" size=\"2\" name=\"paged\" id=\"current-page-selector\" class=\"current-page\" value=\"1\">de&nbsp;\n        <span class=\"total-pages\">2</span>\n      </span>&nbsp;\n      <a href=\"javascript:;\" class=\"next-page\">\n        <span class=\"screen-reader-text\">Siguiente página</span>\n        <span aria-hidden=\"true\">›</span>\n      </a>&nbsp;\n      <span aria-hidden=\"true\" class=\"tablenav-pages-navspan\">»</span>\n    </span>\n  </div>\n</div>\n\n\n\n\n<ng-template #deleted>\n    <select name=\"bulk_actions\">\n      <option value=\"\">Acciones en lote</option>\n      <option value=\"restore\">Restablecer</option>\n      <option value=\"delete\">Borrar permanentemente</option>\n    </select>\n</ng-template>"
+
+/***/ }),
+
+/***/ "./src/app/components/table-nav/table-nav/table-nav.component.scss":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/table-nav/table-nav/table-nav.component.scss ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdGFibGUtbmF2L3RhYmxlLW5hdi90YWJsZS1uYXYuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/components/table-nav/table-nav/table-nav.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/table-nav/table-nav/table-nav.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: TableNavComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableNavComponent", function() { return TableNavComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_enums_status__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/enums/status */ "./src/app/enums/status.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TableNavComponent = /** @class */ (function () {
+    function TableNavComponent() {
+    }
+    TableNavComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], TableNavComponent.prototype, "action", void 0);
+    TableNavComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'neo-table-nav',
+            template: __webpack_require__(/*! ./table-nav.component.html */ "./src/app/components/table-nav/table-nav/table-nav.component.html"),
+            styles: [__webpack_require__(/*! ./table-nav.component.scss */ "./src/app/components/table-nav/table-nav/table-nav.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], TableNavComponent);
+    return TableNavComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/table-row/table-row.component.html":
 /*!***************************************************************!*\
   !*** ./src/app/components/table-row/table-row.component.html ***!
@@ -447,7 +589,7 @@ var AddListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<td class=\"check-column\">\n  <input type=\"checkbox\" name=\"select_all\" id=\"select_all\">\n</td>\n<td class=\"manage-column column-primary has-row-actions\">\n  <strong><a class=\"row-title\" href=\"#\">{{data.name}}</a></strong>\n  <div>\n    <div class=\"row-actions\">\n      <span class=\"edit\"><a href=\"#\" (click)=\"editItem()\">Editar</a></span>\n      <span class=\"view_subscribers\"> | <a href=\"#\" (click)=\"viewSubscriptors()\">Ver\n          suscriptores</a></span><span class=\"trash\"> | <a href=\"#\" (click)=\"removeItem()\">Mover a la papelera</a></span>\n    </div>\n  </div>\n</td>\n<td>{{data.description}}</td>\n<td>{{data.status}}</td>\n<td>{{data.total - data.status}}</td>\n<td>{{data.date | date}}</td>"
+module.exports = "<td class=\"check-column\">\n  <input type=\"checkbox\" name=\"select_all\" id=\"select_all\">\n</td>\n<td class=\"manage-column column-primary has-row-actions\">\n  <strong><a class=\"row-title\" href=\"#\">{{data.name}}</a></strong>\n  <div>\n    <div class=\"row-actions\">\n      <span class=\"edit\"><a href=\"#\" (click)=\"editItem()\">Editar</a></span>\n      <span class=\"view_subscribers\"> | <a href=\"#\" (click)=\"viewSubscriptors()\">Ver\n          suscriptores</a></span><span class=\"trash\"> | <a href=\"#\" (click)=\"removeItem()\">Mover a la papelera</a></span>\n    </div>\n    <div class=\"row-actions\">\n      <span><a href=\"#\">Restablecer</a></span> | <span class=\"delete\"><a class=\"submitdelete\" href=\"javascript:;\">Borrar permanentemente</a></span>\n    </div>\n  </div>\n</td>\n<td>{{data.description}}</td>\n<td>{{data.status}}</td>\n<td>{{data.total - data.status}}</td>\n<td>{{data.date | date}}</td>"
 
 /***/ }),
 
@@ -473,6 +615,7 @@ module.exports = ":host {\n  display: table-row; }\n  :host .has-row-actions:hov
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableRowComponent", function() { return TableRowComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_enums_status__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/enums/status */ "./src/app/enums/status.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -482,6 +625,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 var TableRowComponent = /** @class */ (function () {
     function TableRowComponent() {
@@ -493,6 +637,10 @@ var TableRowComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], TableRowComponent.prototype, "data", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], TableRowComponent.prototype, "status", void 0);
     TableRowComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'neo-table-row',
@@ -514,7 +662,7 @@ var TableRowComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"wp-list-table widefat fixed\">\n  <thead>\n    <tr>\n      <ng-container *ngFor=\"let item of dto.header\">\n          <ng-container *ngIf=\"item.type == 'radio' else header\" >\n              <th  class=\"manage-column column-cb check-column\">\n                  <label class=\"screen-reader-text\" for=\"select_all\">Seleccionar todos</label>\n                  <input type=\"checkbox\" name=\"select_all\" id=\"select_all\">\n              </th>\n          </ng-container>\n          <ng-template #header>\n            <ng-container *ngIf=\"item.sort else description\">\n              <th role=\"columnheader\" class=\"manage-column column-primary sortable desc {{item.type}}\" scope=\"col\"><a role=\"button\" tabindex=\"0\"><span>{{item.name}}</span><span class=\"sorting-indicator\"></span></a></th>\n            </ng-container>\n          </ng-template>\n          <ng-template #description>\n              <th role=\"columnheader\" class=\"manage-column desc\" scope=\"col\">{{item.name}}</th>\n          </ng-template>\n      </ng-container>\n    </tr>\n  </thead>\n  <tbody>\n      <neo-table-row *ngFor=\"let item of dto.data\" [data]=\"item\"></neo-table-row>\n  </tbody>\n  <tfoot>\n      <tr>\n          <ng-container *ngFor=\"let item of dto.header\">\n              <ng-container *ngIf=\"item.type == 'radio' else header\" >\n                  <th  class=\"manage-column column-cb check-column\">\n                      <input type=\"checkbox\" name=\"select_all\" id=\"select_all\">\n                  </th>\n              </ng-container>\n              <ng-template #header>\n                <ng-container *ngIf=\"item.sort else description\">\n                  <th role=\"columnheader\" class=\"manage-column column-primary sortable desc\" scope=\"col\"><a role=\"button\" tabindex=\"0\"><span>{{item.name}}</span><span class=\"sorting-indicator\"></span></a></th>\n                </ng-container>\n              </ng-template>\n              <ng-template #description>\n                  <th role=\"columnheader\" class=\"manage-column desc\" scope=\"col\">{{item.name}}</th>\n              </ng-template>\n          </ng-container>\n        </tr>\n  </tfoot>\n</table>\n\n"
+module.exports = "<table class=\"wp-list-table widefat fixed\">\n  <thead>\n        <neo-table-header [data]=\"dto.header\"></neo-table-header>\n  </thead>\n  <tbody>\n        <ng-container *ngIf=\"dto.data?.length else loading\" >\n            <neo-table-row *ngFor=\"let item of dto.data\" [data]=\"item\"></neo-table-row>\n        </ng-container>\n  </tbody>\n  <tfoot>\n        <neo-table-header [data]=\"dto.header\"></neo-table-header>\n  </tfoot>\n</table>\n\n\n\n<ng-template #loading>\n    <ng-container *ngIf=\"dto.data==null else nodata\">\n        <tr class=\"loading\"><td></td><td colspan=\"5\">Loading data ....</td></tr>\n    </ng-container>\n</ng-template>\n<ng-template #nodata>\n    <tr class=\"loading\"><td></td><td colspan=\"5\">No data ....</td></tr>\n</ng-template>\n\n\n\n\n\n\n"
 
 /***/ }),
 
@@ -525,7 +673,7 @@ module.exports = "<table class=\"wp-list-table widefat fixed\">\n  <thead>\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host() table {\n  width: 100%; }\n  :host() table .check-column {\n    width: 2.2em;\n    padding: 8px;\n    vertical-align: top; }\n  :host() table .check-column input {\n      margin: 0 0 0 8px;\n      padding: 0;\n      vertical-align: text-top; }\n  :host() table .big {\n    width: 40%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93ZWIvcGhwL0FuZ3VsYXIvbGlzdHMvc3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRVEsWUFBVyxFQWVkO0VBakJMO0lBS1ksYUFBWTtJQUNaLGFBQVk7SUFDWixvQkFBbUIsRUFNdEI7RUFiVDtNQVNnQixrQkFBaUI7TUFDakIsV0FBVTtNQUNWLHlCQUF3QixFQUMzQjtFQVpiO0lBZVksV0FBVSxFQUNiIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy90YWJsZS90YWJsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0KCl7XG4gICAgdGFibGV7XG4gICAgICAgIHdpZHRoOiAxMDAlO1xuXG4gICAgICAgIC5jaGVjay1jb2x1bW57XG4gICAgICAgICAgICB3aWR0aDogMi4yZW07XG4gICAgICAgICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuICAgICAgICAgICAgaW5wdXR7XG4gICAgICAgICAgICAgICAgbWFyZ2luOiAwIDAgMCA4cHg7XG4gICAgICAgICAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogdGV4dC10b3A7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICAgLmJpZ3tcbiAgICAgICAgICAgIHdpZHRoOiA0MCU7XG4gICAgICAgIH1cbiAgICB9XG59Il19 */"
+module.exports = ":host() table {\n  width: 100%; }\n  :host() table .loading {\n    background: #f3f4f5; }\n  :host() table .check-column {\n    width: 2.2em;\n    padding: 8px;\n    vertical-align: top; }\n  :host() table .check-column input {\n      margin: 0 0 0 8px;\n      padding: 0;\n      vertical-align: text-top; }\n  :host() table .big {\n    width: 40%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93ZWIvcGhwL0FuZ3VsYXIvbGlzdHMvc3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRVEsWUFBVyxFQWtCZDtFQXBCTDtJQUtZLG9CQUFtQixFQUN0QjtFQU5UO0lBUVksYUFBWTtJQUNaLGFBQVk7SUFDWixvQkFBbUIsRUFNdEI7RUFoQlQ7TUFZZ0Isa0JBQWlCO01BQ2pCLFdBQVU7TUFDVix5QkFBd0IsRUFDM0I7RUFmYjtJQWtCWSxXQUFVLEVBQ2IiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3QoKXtcbiAgICB0YWJsZXtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG5cbiAgICAgICAgLmxvYWRpbmd7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kOiAjZjNmNGY1O1xuICAgICAgICB9XG4gICAgICAgIC5jaGVjay1jb2x1bW57XG4gICAgICAgICAgICB3aWR0aDogMi4yZW07XG4gICAgICAgICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuICAgICAgICAgICAgaW5wdXR7XG4gICAgICAgICAgICAgICAgbWFyZ2luOiAwIDAgMCA4cHg7XG4gICAgICAgICAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogdGV4dC10b3A7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgICAgLmJpZ3tcbiAgICAgICAgICAgIHdpZHRoOiA0MCU7XG4gICAgICAgIH1cbiAgICB9XG59Il19 */"
 
 /***/ }),
 
@@ -585,6 +733,55 @@ var TableComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/enums/status.ts":
+/*!*********************************!*\
+  !*** ./src/app/enums/status.ts ***!
+  \*********************************/
+/*! exports provided: ListStatusEnum, Status */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListStatusEnum", function() { return ListStatusEnum; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return Status; });
+var ListStatusEnum = [
+    { 'name': 'Todos', 'value': -1 },
+    { 'name': 'No confirmado', 'value': 0 },
+    { 'name': 'Activo', 'value': 1 },
+    { 'name': 'Borrado', 'value': 2 },
+    { 'name': 'Otro', 'value': 9 }
+];
+var Status;
+(function (Status) {
+    Status["Actived"] = "actived";
+    Status["Deleted"] = "deleted";
+})(Status || (Status = {}));
+
+
+/***/ }),
+
+/***/ "./src/app/pages/main/colums.const.ts":
+/*!********************************************!*\
+  !*** ./src/app/pages/main/colums.const.ts ***!
+  \********************************************/
+/*! exports provided: Columns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Columns", function() { return Columns; });
+var Columns = [
+    { name: 'Selector', sort: false, type: 'radio' },
+    { name: 'Nombre', sort: true, type: 'big' },
+    { name: 'Descripción', sort: false, type: '' },
+    { name: 'Suscritos', sort: false, type: '' },
+    { name: 'No confirmados', sort: false, type: '' },
+    { name: 'Craedo ...', sort: true, type: '' },
+];
+
+
+/***/ }),
+
 /***/ "./src/app/pages/main/main.component.html":
 /*!************************************************!*\
   !*** ./src/app/pages/main/main.component.html ***!
@@ -592,7 +789,7 @@ var TableComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <h2>Listas <a class=\"page-title-action\"  (click)=\"addList()\">Añadir lista</a></h2>\n</div>\n<neo-table [data]=\"dto\"></neo-table>\n\n<neo-modal>\n    <div header>{{action}}</div>\n    <neo-add-list (close)=\"closeModal()\"></neo-add-list>\n</neo-modal>\n"
+module.exports = "<div>\n    <h2>Listas <a class=\"page-title-action\"  (click)=\"addList()\">Añadir lista</a></h2>\n</div>\n<ul class=\"subsubsub\">\n    <li><a href=\"#\" [class.current]=\"action == 'actived'\" (click)=\"reLoad($event,'actived')\">Activas&nbsp;<span class=\"count\">({{actived}})</span></a></li>\n    <li> |<a href=\"#\" [class.current]=\"action == 'deleted'\" (click)=\"reLoad($event,'deleted')\">Papelera&nbsp;<span class=\"count\">({{deleted}})</span></a></li>\n</ul>\n\n<neo-table-nav [action]=\"action\"></neo-table-nav>\n<neo-table [data]=\"dto\"></neo-table>\n<neo-table-nav [action]=\"action\"></neo-table-nav>\n\n<neo-modal>\n    <div header *ngIf=\"modalTitle\">{{modalTitle}}</div>\n    <neo-add-list (close)=\"closeModal()\"></neo-add-list>\n</neo-modal>\n"
 
 /***/ }),
 
@@ -621,6 +818,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_lists_lists_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/lists/lists.service */ "./src/app/services/lists/lists.service.ts");
 /* harmony import */ var libs_neo_lib_src_components_modal_modal_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! libs/neo-lib/src/components/modal/modal.component */ "./libs/neo-lib/src/components/modal/modal.component.ts");
 /* harmony import */ var libs_neo_lib_src_components_modal_size_enum__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! libs/neo-lib/src/components/modal/size.enum */ "./libs/neo-lib/src/components/modal/size.enum.ts");
+/* harmony import */ var src_app_enums_status__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/enums/status */ "./src/app/enums/status.ts");
+/* harmony import */ var _colums_const__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./colums.const */ "./src/app/pages/main/colums.const.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -634,19 +833,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var MainComponent = /** @class */ (function () {
     function MainComponent(lists) {
         this.lists = lists;
-        this.action = '';
+        this.modalTitle = '';
+        this.actived = 0;
+        this.deleted = 0;
+        this.action = src_app_enums_status__WEBPACK_IMPORTED_MODULE_4__["Status"].Actived;
+        this.page = 1;
         this.dto = {
-            header: [
-                { name: 'Selector', sort: false, type: 'radio' },
-                { name: 'Nombre', sort: true, type: 'big' },
-                { name: 'Descripción', sort: false, type: '' },
-                { name: 'Suscritos', sort: false, type: '' },
-                { name: 'No confirmados', sort: false, type: '' },
-                { name: 'Craedo ...', sort: true, type: '' },
-            ],
+            header: _colums_const__WEBPACK_IMPORTED_MODULE_5__["Columns"],
             data: [{}]
         };
     }
@@ -654,13 +852,28 @@ var MainComponent = /** @class */ (function () {
         var _this = this;
         this.list$ = this.lists.getLists().subscribe(function (dta) {
             _this.dto.data = dta;
+            _this.actived = _this.lists.getTotal();
+            _this.deleted = _this.lists.getDeleted();
         });
     };
     MainComponent.prototype.ngOnDestroy = function () {
         this.list$.unsubscribe();
     };
+    MainComponent.prototype.reLoad = function (e, target) {
+        if (this.action !== target) {
+            this.action = target;
+            this.dto.data = null;
+            if (target === src_app_enums_status__WEBPACK_IMPORTED_MODULE_4__["Status"].Actived) {
+                this.lists.reload(this.page, false);
+            }
+            else {
+                this.lists.reload(this.page, true);
+            }
+        }
+        return false;
+    };
     MainComponent.prototype.addList = function () {
-        this.action = 'Nueva lista';
+        this.modalTitle = 'Nueva lista';
         this.modal.open(libs_neo_lib_src_components_modal_size_enum__WEBPACK_IMPORTED_MODULE_3__["Size"].Small);
     };
     MainComponent.prototype.closeModal = function () {
@@ -719,20 +932,34 @@ var ListsService = /** @class */ (function () {
         this.lists$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](this.lists);
     }
     ListsService.prototype.getTotal = function () {
-        return this.total || 0;
+        return this.active || 0;
     };
-    ListsService.prototype.getLists = function (page) {
+    ListsService.prototype.getDeleted = function () {
+        return this.deleted || 0;
+    };
+    ListsService.prototype.getLists = function (page, deleted) {
         var _this = this;
         if (page === void 0) { page = 1; }
+        if (deleted === void 0) { deleted = false; }
         if (!this.lists.length) {
-            this.http.get(URL + '?p=' + page)
+            var path = URL + '?p=' + page + (deleted ? '&del=true' : '');
+            this.http.get(path)
                 .subscribe(function (data) {
                 _this.lists = data.attributes;
-                _this.total = data.total;
+                _this.active = data.active;
+                _this.deleted = data.deleted;
                 _this.lists$.next(_this.lists);
+            }, function (e) {
+                _this.lists$.error(e);
             });
         }
         return this.lists$.asObservable();
+    };
+    ListsService.prototype.reload = function (page, deleted) {
+        if (page === void 0) { page = 1; }
+        if (deleted === void 0) { deleted = false; }
+        this.reset();
+        this.getLists(page, deleted);
     };
     ListsService.prototype.reset = function () {
         this.lists = [];
