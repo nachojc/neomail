@@ -10,28 +10,11 @@ class Initializer{
         global $neomail_plugin;
         Env::init( $neomail_plugin );
         
-        //  TODO no va
-        // register_activation_hook( 
-        //     Env::$file,
-        //     array(
-        //         $this,
-        //         'activate'
-        //         )
-        //     );
-        // register_uninstall_hook( 
-        //     Env::$file,
-        //     array(
-        //         $this,
-        //         'uninstall'
-        //         )
-        //     );
-
         DB::checkDB();
         Api::init();
 
         $menu = new Menus();
-        $menu ->init();
-
+        $menu->init();
     }
     
 

@@ -103,17 +103,12 @@ class DB {
     }
 
     static function getTableName(){
-        return Env::$db_prefix . DB::TABLES['settings'];
-    }
-
-
-    
+        return Env::$db_prefix . DB::TABLES['settings']; }
 
     static function checkDB(){
         foreach (self::TABLES as $key => $value){
             self::create_table ( $key );
         }
-        
     }
     
     static function create_table($table) {
@@ -121,7 +116,6 @@ class DB {
 
         $table_name = $wpdb->prefix . self::BASE . '_' . self::TABLES[$table];
 
-     
         if ( $wpdb->get_var( "SHOW TABLES LIKE '" . $table_name . "'" ) == $table_name ) {
             return true;
         }

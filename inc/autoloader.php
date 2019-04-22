@@ -29,7 +29,6 @@ class Autoloader {
                         esc_html( "The file attempting to be loaded at $filepath does not exist." )
                     );
                 }
-                // require_once( $neomail_plugin['path'] . '/'. $file );
             }
         });
     }

@@ -26,9 +26,8 @@ class Commonview{
     }
 
     public function addFooter(){ echo self::getFooter();}
-    protected function getFooter(){
-        return '</div>';
-    }
+    protected function getFooter(){ return '</div>'; }
+    
     function getFullView($view = ''){
         $contend = str_replace("{{REPEAT_CONTEND}}", self::$repeat, self::$view);
         return self::getHeader() . $contend . self::getFooter();
