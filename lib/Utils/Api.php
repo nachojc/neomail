@@ -13,6 +13,7 @@ class Api{
     static function registrar_endpoints(){
         register_rest_route( self::NAMESPACE, '/list', self::getArrayList());
         register_rest_route( self::NAMESPACE, '/list/add/', self::getArrayList_Add());
+        register_rest_route( self::NAMESPACE, '/list/upt/(?P<id>[\d]+)', self::getArrayList_Update());
         register_rest_route( self::NAMESPACE, '/list/del/(?P<id>[\d]+)', self::getArrayList_Del());
         register_rest_route( self::NAMESPACE, '/lists', self::getSimpleLists());
         
@@ -97,44 +98,36 @@ class Api{
                 ),
                 'v' => array(
                     'validate_callback' => function($param, $request, $key) {
-                        $date = explode(' ',$param);
-                        if (sizeof($date)==2){
-                            list($y, $m, $d) = explode('-', $date[0]);
-                            $h = explode(':', $date[1]);
-                            return sizeof($h)==3 && is_numeric($h[0]) && is_numeric($h[1]) && is_numeric($h[2])
-                                    && is_numeric($y) && is_numeric($m) && is_numeric($d);
-                        }
-                        return false;
+                        return Helper::isDateFormat($param);
                     }
                 )
             )
         );
     }
 
-    static function getArrayList_Remove(){
+    static function getArrayList_Update(){
         return array(
-            'methods'  => 'GET',
+            'methods'  => 'PUT',
             'callback' => function( $request){
-                return Lists::removeElement($request);
+                return Lists::updateElement($request);
             },
             'args'     => array(
                 'id' => array(
                     'required'          => true,
-                    'type'              => 'integer',
-                    // 'validate_callback' => function($param, $request, $key) {
-                    //     return is_numeric($param);
-                    // },
-                    'sanitize_callback' => function($param, $request, $key) {
-                        return strip_tags( $param );
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_numeric($param);
+                    }
+                ),
+                'v' => array(
+                    'required'          => true,
+                    'validate_callback' => function($param, $request, $key) {
+                        return Helper::isDateFormat($param);
                     }
                 )
-            ),
-            'permission_callback' => function() {
-                return is_user_logged_in();
-            } 
+            )
         );
     }
-
+    
     static function getArrayToken(){
         return array(
             'methods'  => 'GET',

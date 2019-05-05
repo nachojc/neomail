@@ -106,7 +106,6 @@ static function getSimpleLists($request){
       return self::removeElement($id, $value);
     }
 
-    // return $id."--";
     return $wpdb->delete(self::$table, array('id' => $id, 'deleted' => 1, 'updated_at'=> $token), array('%d','%d', '%s'));
   }
 
@@ -115,6 +114,20 @@ static function getSimpleLists($request){
 
     return $wpdb->update(self::$table, array('deleted' => $val), array('id' => $id), array('%d'), array('%d'));
   }
+
+  static function updateElement($request){
+    global $wpdb; parent::init(self::PARAM);
+
+    $id = filter_var( $request->get_param('id'), FILTER_VALIDATE_INT) ;
+    $name = filter_var( $request->get_param('name'),FILTER_SANITIZE_STRING);
+    $description = filter_var( $request->get_param('description'), FILTER_SANITIZE_STRING);
+    $token = filter_var( $request->get_param('v'), FILTER_SANITIZE_STRING);
+
+    $wpdb->update(self::$table, array("name" => $name, "description"=> $description), array("id" => $id, 'updated_at'=> $token), array('%s', '%s'), array('%d', '%s'));
+    return wp_send_json($wpdb->get_results('SELECT * FROM '.self::$table.' WHERE id='.$id));
+    // return $wpdb->last_query;
+  }
+
 
   static function getTotal($active = true){
     global $wpdb; 
