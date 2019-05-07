@@ -42,7 +42,7 @@ static function getSimpleLists($request){
     'n' => 'A.name', 
     'd' => 'A.description',
     'c' => 'A.created_at',
-    'u' => 'A.updated_at',
+    'u' => 'A.updated_at'
   ); 
   static function getLists($request){
     global $wpdb; parent::init(self::PARAM);
@@ -73,16 +73,14 @@ static function getSimpleLists($request){
     $order .= ($ord == null || $ord == 'a')? ' ASC': ' DESC';
     $query .= $order . $filter;
 
-    // return $query;
     return wp_send_json( array('step' => $page, 'active'=> self::getTotal(),'deleted'=> self::getTotal(false),'attributes' => $wpdb->get_results($query)));
   }
   static function addElement($request){
     global $wpdb; parent::init(self::PARAM);
-    $name = $request->get_param('name');
-    $description = $request->get_param('description');
+    $name = strip_tags($request->get_param('name'));
+    $description = rip_tags($request->get_param('description'));
 
-    $data = array('name' => $name, 'description' => $description);
-    $wpdb->insert(self::$table ,  $data);
+    $wpdb->insert(self::$table ,  array('name' => $name, 'description' => $description));
     
     return wp_send_json(array( "id" => $wpdb->insert_id), 200);
   }
@@ -119,7 +117,7 @@ static function getSimpleLists($request){
     global $wpdb; parent::init(self::PARAM);
 
     $id = filter_var( $request->get_param('id'), FILTER_VALIDATE_INT) ;
-    $name = filter_var( $request->get_param('name'),FILTER_SANITIZE_STRING);
+    $name = filter_var( $request->get_param('name'), FILTER_SANITIZE_STRING);
     $description = filter_var( $request->get_param('description'), FILTER_SANITIZE_STRING);
     $token = filter_var( $request->get_param('v'), FILTER_SANITIZE_STRING);
 

@@ -11,20 +11,21 @@ class Api{
     }
 
     static function registrar_endpoints(){
-        register_rest_route( self::NAMESPACE, '/list', self::getArrayList());
-        register_rest_route( self::NAMESPACE, '/list/add/', self::getArrayList_Add());
-        register_rest_route( self::NAMESPACE, '/list/upt/(?P<id>[\d]+)', self::getArrayList_Update());
-        register_rest_route( self::NAMESPACE, '/list/del/(?P<id>[\d]+)', self::getArrayList_Del());
+        register_rest_route( self::NAMESPACE, '/list', self::getArrayLists());
+        register_rest_route( self::NAMESPACE, '/list/add/', self::List_Add());
+        register_rest_route( self::NAMESPACE, '/list/upt/(?P<id>[\d]+)', self::List_Update());
+        register_rest_route( self::NAMESPACE, '/list/del/(?P<id>[\d]+)', self::List_Del());
         register_rest_route( self::NAMESPACE, '/lists', self::getSimpleLists());
         
+        register_rest_route( self::NAMESPACE, '/mails', self::getArrayMails());
 
-        register_rest_route( self::NAMESPACE, '/token/', self::getArrayToken());
+        register_rest_route( self::NAMESPACE, '/token/', self::getToken());
     }
 
 
     
 
-    static function getArrayList(){
+    static function getArrayLists(){
         return array(
             'methods'  => 'GET',
             'callback' => function( $request){
@@ -55,7 +56,7 @@ class Api{
         );
     }
 
-    static function getArrayList_Add(){
+    static function List_Add(){
         return array(
             'methods'  => 'POST',
             'callback' => function( $request){
@@ -78,7 +79,7 @@ class Api{
         );
     }
 
-    static function getArrayList_Del(){
+    static function List_Del(){
         return array(
             'methods'  => 'PUT',
             'callback' => function( $request){
@@ -105,7 +106,7 @@ class Api{
         );
     }
 
-    static function getArrayList_Update(){
+    static function List_Update(){
         return array(
             'methods'  => 'PUT',
             'callback' => function( $request){
@@ -128,21 +129,56 @@ class Api{
         );
     }
     
-    static function getArrayToken(){
-        return array(
-            'methods'  => 'GET',
-            'callback' => function( $request){
-                
-                return wp_create_nonce( 'wp_rest' );
-            }
-        );
-    }
-
     static function getSimpleLists(){
         return array(
             'methods'  => 'GET',
             'callback' => function( $request){
                 return Lists::getSimpleLists($request);
+            }
+        );
+    }
+
+    static function getArrayMails(){
+        return array(
+            'methods'  => 'GET',
+            'callback' => function( $request){
+                return Subscriptors::getMails($request);
+            },
+            'args'     => array(
+                'p' => array(
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_numeric($param);
+                    }
+                ),
+                'opt' => array(
+                    'sanitize_callback' => function($param, $request, $key) {
+                        return wp_strip_all_tags( $param, true );
+                    }
+                ),
+                'o' => array(
+                    'validate_callback' => function($param, $request, $key) {
+                        return $param == 'a' || $param== 'd';
+                    }
+                ),
+                'del' => array(
+                    'validate_callback' => function($param, $request, $key) {
+                        return $param == 'true' || $param == 'false' || $param == null ;
+                    }
+                )
+            )
+        );
+    }
+
+
+
+
+
+    static function getToken(){
+        return array(
+            'methods'  => 'GET',
+            'callback' => function( $request){
+                
+                return wp_create_nonce( 'wp_rest' );
             }
         );
     }

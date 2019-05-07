@@ -20,17 +20,17 @@ class DB {
     const QUERYS = array(
         'mails' => "(
             `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-            `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+            `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
             `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
             `company` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
             `email` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-            `status` int(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 0, 
+            `description` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+            `status` int(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 1, 
             `subscribed_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
             `confirmed_ip` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
             `confirmed_at` timestamp NULL DEFAULT NULL,
             `created_at` timestamp NULL DEFAULT current_timestamp(),
             `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-            `deleted_at` timestamp NULL DEFAULT NULL,
             PRIMARY KEY (`id`),
             UNIQUE KEY `email` (`email`)
         )",

@@ -8,4 +8,11 @@ class Newsletter{
   function init($env = ''){
     echo 'Newsletter';
   }
+
+
+  static function getNewsletter(){
+
+  }
+
+
 }
