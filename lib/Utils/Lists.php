@@ -78,7 +78,7 @@ static function getSimpleLists($request){
   static function addElement($request){
     global $wpdb; parent::init(self::PARAM);
     $name = strip_tags($request->get_param('name'));
-    $description = rip_tags($request->get_param('description'));
+    $description = strip_tags($request->get_param('description'));
 
     $wpdb->insert(self::$table ,  array('name' => $name, 'description' => $description));
     
