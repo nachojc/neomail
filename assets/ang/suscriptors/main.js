@@ -1,5 +1,121 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./libs/neo-lib/src/components/select/items-list.ts":
+/*!**********************************************************!*\
+  !*** ./libs/neo-lib/src/components/select/items-list.ts ***!
+  \**********************************************************/
+/*! exports provided: ItemsList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemsList", function() { return ItemsList; });
+var ItemsList = /** @class */ (function () {
+    function ItemsList(_ngSelect
+    // private _selectionModel: SelectionModel)
+    ) {
+        this._ngSelect = _ngSelect;
+    }
+    Object.defineProperty(ItemsList.prototype, "selectedItems", {
+        get: function () { return []; },
+        enumerable: true,
+        configurable: true
+    });
+    return ItemsList;
+}());
+
+
+
+/***/ }),
+
+/***/ "./libs/neo-lib/src/components/select/select.component.html":
+/*!******************************************************************!*\
+  !*** ./libs/neo-lib/src/components/select/select.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div (mousedown)=\"handleMousedown($event)\" [class.ng-has-value]=\"hasValue\" class=\"neo-select-container\">\n    <div class=\"ng-value-container\">\n        \n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./libs/neo-lib/src/components/select/select.component.scss":
+/*!******************************************************************!*\
+  !*** ./libs/neo-lib/src/components/select/select.component.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25lby1saWIvc3JjL2NvbXBvbmVudHMvc2VsZWN0L3NlbGVjdC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./libs/neo-lib/src/components/select/select.component.ts":
+/*!****************************************************************!*\
+  !*** ./libs/neo-lib/src/components/select/select.component.ts ***!
+  \****************************************************************/
+/*! exports provided: NeoSelectComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NeoSelectComponent", function() { return NeoSelectComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _items_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./items-list */ "./libs/neo-lib/src/components/select/items-list.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var index = 1;
+var NeoSelectComponent = /** @class */ (function () {
+    function NeoSelectComponent() {
+        this.id = 'neo-select-' + index++;
+        this.itemsList = new _items_list__WEBPACK_IMPORTED_MODULE_1__["ItemsList"](this
+        // , newSelectionModel()
+        );
+    }
+    Object.defineProperty(NeoSelectComponent.prototype, "selectedItems", {
+        get: function () { return this.itemsList.selectedItems; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(NeoSelectComponent.prototype, "hasValue", {
+        get: function () { return this.selectedItems.length > 0; },
+        enumerable: true,
+        configurable: true
+    });
+    NeoSelectComponent.prototype.handleMousedown = function ($event) {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], NeoSelectComponent.prototype, "id", void 0);
+    NeoSelectComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'neo-select',
+            template: __webpack_require__(/*! ./select.component.html */ "./libs/neo-lib/src/components/select/select.component.html"),
+            host: {
+                '[attr.id]': 'id',
+                'role': 'selector'
+            },
+            styles: [__webpack_require__(/*! ./select.component.scss */ "./libs/neo-lib/src/components/select/select.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], NeoSelectComponent);
+    return NeoSelectComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -37,6 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _pages_main_main_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/main/main.component */ "./src/app/pages/main/main.component.ts");
 /* harmony import */ var _pages_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/add-user/add-user.component */ "./src/app/pages/add-user/add-user.component.ts");
+/* harmony import */ var _pages_edit_user_edit_user_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/edit-user/edit-user.component */ "./src/app/pages/edit-user/edit-user.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47,9 +164,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     { path: '', component: _pages_main_main_component__WEBPACK_IMPORTED_MODULE_2__["MainComponent"] },
     { path: 'new', component: _pages_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_3__["AddUserComponent"] },
+    { path: 'edit/:id', component: _pages_edit_user_edit_user_component__WEBPACK_IMPORTED_MODULE_4__["EditUserComponent"] },
     // { path: 'crisis-center', component: CrisisListComponent },
     // { path: 'hero/:id',      component: HeroDetailComponent },
     // {
@@ -82,7 +201,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h2>Subscriptors <a class=\"page-title-action\" href=\"#/new\">Add new subcriptor</a></h2>\n</div>\n<router-outlet></router-outlet>"
+module.exports = "<div>\n  <h2>Subscriptors <a class=\"page-title-action\" href=\"#/new\">Add new</a></h2>\n</div>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -145,15 +264,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _pages_main_main_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/main/main.component */ "./src/app/pages/main/main.component.ts");
-/* harmony import */ var _pages_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/add-user/add-user.component */ "./src/app/pages/add-user/add-user.component.ts");
-/* harmony import */ var _components_search_search_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/search/search.component */ "./src/app/components/search/search.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _components_table_table_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/table/table.module */ "./src/app/components/table/table.module.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _pages_main_main_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/main/main.component */ "./src/app/pages/main/main.component.ts");
+/* harmony import */ var _pages_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/add-user/add-user.component */ "./src/app/pages/add-user/add-user.component.ts");
+/* harmony import */ var _components_search_search_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/search/search.component */ "./src/app/components/search/search.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _components_table_table_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/table/table.module */ "./src/app/components/table/table.module.ts");
+/* harmony import */ var _pages_edit_user_edit_user_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/edit-user/edit-user.component */ "./src/app/pages/edit-user/edit-user.component.ts");
+/* harmony import */ var _pipes_enumToArray__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pipes/enumToArray */ "./src/app/pipes/enumToArray.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var libs_neo_lib_src_components_select_select_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! libs/neo-lib/src/components/select/select.component */ "./libs/neo-lib/src/components/select/select.component.ts");
+/* harmony import */ var primeng_autocomplete__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/autocomplete */ "./node_modules/primeng/autocomplete.js");
+/* harmony import */ var primeng_autocomplete__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_autocomplete__WEBPACK_IMPORTED_MODULE_14__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -171,28 +295,36 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-                _pages_main_main_component__WEBPACK_IMPORTED_MODULE_6__["MainComponent"],
-                _pages_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_7__["AddUserComponent"],
-                _components_search_search_component__WEBPACK_IMPORTED_MODULE_8__["SearchComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+                _pages_main_main_component__WEBPACK_IMPORTED_MODULE_5__["MainComponent"],
+                _pages_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_6__["AddUserComponent"],
+                _pages_edit_user_edit_user_component__WEBPACK_IMPORTED_MODULE_10__["EditUserComponent"],
+                _components_search_search_component__WEBPACK_IMPORTED_MODULE_7__["SearchComponent"],
+                _pipes_enumToArray__WEBPACK_IMPORTED_MODULE_11__["EnumToArrayPipe"],
+                libs_neo_lib_src_components_select_select_component__WEBPACK_IMPORTED_MODULE_13__["NeoSelectComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
-                _components_table_table_module__WEBPACK_IMPORTED_MODULE_10__["TableModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"],
+                primeng_autocomplete__WEBPACK_IMPORTED_MODULE_14__["AutoCompleteModule"],
+                _components_table_table_module__WEBPACK_IMPORTED_MODULE_9__["TableModule"],
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
             providers: [
                 // appRoutingProviders,
-                { provide: _angular_common__WEBPACK_IMPORTED_MODULE_3__["APP_BASE_HREF"], useValue: '/' },
+                { provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["APP_BASE_HREF"], useValue: '/' },
             ]
         })
     ], AppModule);
@@ -221,7 +353,7 @@ module.exports = "<ul>\n  <li><label for=\"search\">Buscar</label></li>\n  <li><
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host li {\n  padding: 0 5px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93ZWIvcGhwL0FuZ3VsYXIvc3VzY3JpcHRvcnMvc3JjL2FwcC9jb21wb25lbnRzL3NlYXJjaC9zZWFyY2guY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFUSxlQUFjLEVBQ2pCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9zZWFyY2gvc2VhcmNoLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3R7XG4gICAgbGl7XG4gICAgICAgIHBhZGRpbmc6IDAgNXB4O1xuICAgIH1cbn0iXX0= */"
+module.exports = ":host li {\n  padding: 0 5px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ZWIvYW5ndWxhci9zdXNjcmlwdG9ycy9zcmMvYXBwL2NvbXBvbmVudHMvc2VhcmNoL3NlYXJjaC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50cy9zZWFyY2gvc2VhcmNoLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNJO0VBQ0ksY0FBQTtBQ0FSIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9zZWFyY2gvc2VhcmNoLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3R7XG4gICAgbGl7XG4gICAgICAgIHBhZGRpbmc6IDAgNXB4O1xuICAgIH1cbn0iLCI6aG9zdCBsaSB7XG4gIHBhZGRpbmc6IDAgNXB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -236,8 +368,7 @@ module.exports = ":host li {\n  padding: 0 5px; }\n\n/*# sourceMappingURL=data:a
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_services_lists_lists_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/lists/lists.service */ "./src/app/services/lists/lists.service.ts");
-/* harmony import */ var src_app_enums_status__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/enums/status */ "./src/app/enums/status.ts");
+/* harmony import */ var src_app_enums_status__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/enums/status */ "./src/app/enums/status.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -249,12 +380,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
 var SearchComponent = /** @class */ (function () {
-    function SearchComponent(listService) {
-        this.listService = listService;
+    function SearchComponent() {
         this.search = { list: -1, status: -1, search: '' };
-        this.status = src_app_enums_status__WEBPACK_IMPORTED_MODULE_2__["ListStatusEnum"];
+        this.status = src_app_enums_status__WEBPACK_IMPORTED_MODULE_1__["ListStatusEnum"];
         this._lists = [{ id: '-1', name: 'Todos' }];
     }
     Object.defineProperty(SearchComponent.prototype, "lists", {
@@ -267,12 +396,7 @@ var SearchComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    SearchComponent.prototype.ngOnInit = function () {
-        //   this.lists$ = this.listService.getLists(-1).subscribe((data) => {this.changeListSelction( data); });
-    };
-    SearchComponent.prototype.ngOnDestroy = function () {
-        this.lists$.unsubscribe();
-    };
+    // constructor(private listService: ListsService) { }
     // private changeListSelction(data: any []) {
     //   this.listSelection = [{ id: '0', name: 'Todos'}].concat(data);
     // }
@@ -289,8 +413,7 @@ var SearchComponent = /** @class */ (function () {
             selector: 'neo-search',
             template: __webpack_require__(/*! ./search.component.html */ "./src/app/components/search/search.component.html"),
             styles: [__webpack_require__(/*! ./search.component.scss */ "./src/app/components/search/search.component.scss")]
-        }),
-        __metadata("design:paramtypes", [src_app_services_lists_lists_service__WEBPACK_IMPORTED_MODULE_1__["ListsService"]])
+        })
     ], SearchComponent);
     return SearchComponent;
 }());
@@ -317,7 +440,7 @@ module.exports = "  <ng-container *ngFor=\"let item of data\">\n    <ng-containe
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: table-row;\n  vertical-align: inherit;\n  border-color: inherit;\n  border-spacing: 0; }\n  :host .check-column {\n    width: 2.2em;\n    padding: 8px;\n    vertical-align: top; }\n  :host .check-column input {\n      margin: 0 0 0 8px;\n      padding: 0;\n      vertical-align: text-top; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93ZWIvcGhwL0FuZ3VsYXIvc3VzY3JpcHRvcnMvc3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL2hlYWRlci90YWJsZS1oZWFkZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxtQkFBa0I7RUFDbEIsd0JBQXVCO0VBQ3ZCLHNCQUFxQjtFQUNyQixrQkFBaUIsRUFZcEI7RUFoQkQ7SUFPUSxhQUFZO0lBQ1osYUFBWTtJQUNaLG9CQUFtQixFQU10QjtFQWZMO01BV1ksa0JBQWlCO01BQ2pCLFdBQVU7TUFDVix5QkFBd0IsRUFDM0IiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL2hlYWRlci90YWJsZS1oZWFkZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdHtcbiAgICBkaXNwbGF5OiB0YWJsZS1yb3c7XG4gICAgdmVydGljYWwtYWxpZ246IGluaGVyaXQ7XG4gICAgYm9yZGVyLWNvbG9yOiBpbmhlcml0O1xuICAgIGJvcmRlci1zcGFjaW5nOiAwO1xuXG4gICAgLmNoZWNrLWNvbHVtbntcbiAgICAgICAgd2lkdGg6IDIuMmVtO1xuICAgICAgICBwYWRkaW5nOiA4cHg7XG4gICAgICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgICAgIGlucHV0e1xuICAgICAgICAgICAgbWFyZ2luOiAwIDAgMCA4cHg7XG4gICAgICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICAgICAgdmVydGljYWwtYWxpZ246IHRleHQtdG9wO1xuICAgICAgICB9XG4gICAgfVxufSJdfQ== */"
+module.exports = ":host {\n  display: table-row;\n  vertical-align: inherit;\n  border-color: inherit;\n  border-spacing: 0;\n}\n:host .check-column {\n  width: 2.2em;\n  padding: 8px;\n  vertical-align: top;\n}\n:host .check-column input {\n  margin: 0 0 0 8px;\n  padding: 0;\n  vertical-align: text-top;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ZWIvYW5ndWxhci9zdXNjcmlwdG9ycy9zcmMvYXBwL2NvbXBvbmVudHMvdGFibGUvaGVhZGVyL3RhYmxlLWhlYWRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50cy90YWJsZS9oZWFkZXIvdGFibGUtaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksa0JBQUE7RUFDQSx1QkFBQTtFQUNBLHFCQUFBO0VBQ0EsaUJBQUE7QUNDSjtBRENJO0VBQ0ksWUFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtBQ0NSO0FEQVE7RUFDSSxpQkFBQTtFQUNBLFVBQUE7RUFDQSx3QkFBQTtBQ0VaIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy90YWJsZS9oZWFkZXIvdGFibGUtaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3R7XG4gICAgZGlzcGxheTogdGFibGUtcm93O1xuICAgIHZlcnRpY2FsLWFsaWduOiBpbmhlcml0O1xuICAgIGJvcmRlci1jb2xvcjogaW5oZXJpdDtcbiAgICBib3JkZXItc3BhY2luZzogMDtcblxuICAgIC5jaGVjay1jb2x1bW57XG4gICAgICAgIHdpZHRoOiAyLjJlbTtcbiAgICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuICAgICAgICBpbnB1dHtcbiAgICAgICAgICAgIG1hcmdpbjogMCAwIDAgOHB4O1xuICAgICAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgICAgIHZlcnRpY2FsLWFsaWduOiB0ZXh0LXRvcDtcbiAgICAgICAgfVxuICAgIH1cbn0iLCI6aG9zdCB7XG4gIGRpc3BsYXk6IHRhYmxlLXJvdztcbiAgdmVydGljYWwtYWxpZ246IGluaGVyaXQ7XG4gIGJvcmRlci1jb2xvcjogaW5oZXJpdDtcbiAgYm9yZGVyLXNwYWNpbmc6IDA7XG59XG46aG9zdCAuY2hlY2stY29sdW1uIHtcbiAgd2lkdGg6IDIuMmVtO1xuICBwYWRkaW5nOiA4cHg7XG4gIHZlcnRpY2FsLWFsaWduOiB0b3A7XG59XG46aG9zdCAuY2hlY2stY29sdW1uIGlucHV0IHtcbiAgbWFyZ2luOiAwIDAgMCA4cHg7XG4gIHBhZGRpbmc6IDA7XG4gIHZlcnRpY2FsLWFsaWduOiB0ZXh0LXRvcDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -391,7 +514,7 @@ var TableHeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<td class=\"check-column\">\n  <input type=\"checkbox\" name=\"select_all\" id=\"select_all\">\n</td>\n<td class=\"manage-column column-primary has-row-actions column-username\">\n  <strong><a class=\"row-title\" href=\"#/edit/1\">{{data.email}}</a></strong>\n  <p style=\"margin: 0px;\">{{data.name}} </p>\n  <div><div class=\"row-actions\">\n    <span class=\"edit\"><a href=\"#/edit/{{data.id}}\">Editar</a></span>\n  </div></div>\n</td>\n<td>{{data.company}}</td>\n<td>{{ getMailLists()}}</td>\n<td>{{getMailStatus()}}</td>\n\n<td>{{data.date}}</td>\n"
+module.exports = "\n<td class=\"check-column\">\n  <input type=\"checkbox\" name=\"select_all\" id=\"select_all\">\n</td>\n<td class=\"manage-column column-primary has-row-actions column-username\">\n  <strong><a class=\"row-title\" href=\"#/edit/{{data.id}}\">{{data.email}}</a></strong>\n  <p style=\"margin: 0px;\">{{data.name}} </p>\n  <div><div class=\"row-actions\">\n    <span class=\"edit\"><a href=\"#/edit/{{data.id}}\">Editar</a></span>\n  </div></div>\n</td>\n<td>{{data.company}}</td>\n<td>{{ getMailLists() }}</td>\n<td>{{getMailStatus()}}</td>\n\n<td>{{data.date}}</td>\n"
 
 /***/ }),
 
@@ -402,7 +525,7 @@ module.exports = "\n<td class=\"check-column\">\n  <input type=\"checkbox\" name
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: table-row; }\n  :host .has-row-actions:hover .row-actions {\n    left: 0; }\n  :host .check-column {\n    width: 2.2em;\n    padding: 8px;\n    vertical-align: top; }\n  :host .check-column input {\n      margin: 0 0 0 8px;\n      padding: 0;\n      vertical-align: text-top; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93ZWIvcGhwL0FuZ3VsYXIvc3VzY3JpcHRvcnMvc3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL3Jvdy90YWJsZS1yb3cuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxtQkFBa0IsRUFjckI7RUFmRDtJQUdRLFFBQU8sRUFDVjtFQUpMO0lBTVEsYUFBWTtJQUNaLGFBQVk7SUFDWixvQkFBbUIsRUFNdEI7RUFkTDtNQVVZLGtCQUFpQjtNQUNqQixXQUFVO01BQ1YseUJBQXdCLEVBQzNCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy90YWJsZS9yb3cvdGFibGUtcm93LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3R7XG4gICAgZGlzcGxheTogdGFibGUtcm93O1xuICAgIC5oYXMtcm93LWFjdGlvbnM6aG92ZXIgLnJvdy1hY3Rpb25ze1xuICAgICAgICBsZWZ0OiAwO1xuICAgIH1cbiAgICAuY2hlY2stY29sdW1ue1xuICAgICAgICB3aWR0aDogMi4yZW07XG4gICAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgICAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgICAgICAgaW5wdXR7XG4gICAgICAgICAgICBtYXJnaW46IDAgMCAwIDhweDtcbiAgICAgICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogdGV4dC10b3A7XG4gICAgICAgIH1cbiAgICB9XG59Il19 */"
+module.exports = ":host {\n  display: table-row;\n}\n:host .has-row-actions:hover .row-actions {\n  left: 0;\n}\n:host .check-column {\n  width: 2.2em;\n  padding: 8px;\n  vertical-align: top;\n}\n:host .check-column input {\n  margin: 0 0 0 8px;\n  padding: 0;\n  vertical-align: text-top;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ZWIvYW5ndWxhci9zdXNjcmlwdG9ycy9zcmMvYXBwL2NvbXBvbmVudHMvdGFibGUvcm93L3RhYmxlLXJvdy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50cy90YWJsZS9yb3cvdGFibGUtcm93LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksa0JBQUE7QUNDSjtBREFJO0VBQ0ksT0FBQTtBQ0VSO0FEQUk7RUFDSSxZQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FDRVI7QUREUTtFQUNJLGlCQUFBO0VBQ0EsVUFBQTtFQUNBLHdCQUFBO0FDR1oiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL3Jvdy90YWJsZS1yb3cuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdHtcbiAgICBkaXNwbGF5OiB0YWJsZS1yb3c7XG4gICAgLmhhcy1yb3ctYWN0aW9uczpob3ZlciAucm93LWFjdGlvbnN7XG4gICAgICAgIGxlZnQ6IDA7XG4gICAgfVxuICAgIC5jaGVjay1jb2x1bW57XG4gICAgICAgIHdpZHRoOiAyLjJlbTtcbiAgICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuICAgICAgICBpbnB1dHtcbiAgICAgICAgICAgIG1hcmdpbjogMCAwIDAgOHB4O1xuICAgICAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgICAgIHZlcnRpY2FsLWFsaWduOiB0ZXh0LXRvcDtcbiAgICAgICAgfVxuICAgIH1cbn0iLCI6aG9zdCB7XG4gIGRpc3BsYXk6IHRhYmxlLXJvdztcbn1cbjpob3N0IC5oYXMtcm93LWFjdGlvbnM6aG92ZXIgLnJvdy1hY3Rpb25zIHtcbiAgbGVmdDogMDtcbn1cbjpob3N0IC5jaGVjay1jb2x1bW4ge1xuICB3aWR0aDogMi4yZW07XG4gIHBhZGRpbmc6IDhweDtcbiAgdmVydGljYWwtYWxpZ246IHRvcDtcbn1cbjpob3N0IC5jaGVjay1jb2x1bW4gaW5wdXQge1xuICBtYXJnaW46IDAgMCAwIDhweDtcbiAgcGFkZGluZzogMDtcbiAgdmVydGljYWwtYWxpZ246IHRleHQtdG9wO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -524,7 +647,7 @@ module.exports = "<table class=\"wp-list-table widefat fixed\">\n    <thead>\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host() table {\n  width: 100%; }\n  :host() table th.check-column, :host() table td.check-column {\n    width: 2.2em;\n    padding: 8px;\n    vertical-align: top; }\n  :host() table th.check-column input, :host() table td.check-column input {\n      margin: 0 0 0 8px;\n      padding: 0;\n      vertical-align: text-top; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93ZWIvcGhwL0FuZ3VsYXIvc3VzY3JpcHRvcnMvc3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRVEsWUFBVyxFQVlkO0VBZEw7SUFLWSxhQUFZO0lBQ1osYUFBWTtJQUNaLG9CQUFtQixFQU10QjtFQWJUO01BU2dCLGtCQUFpQjtNQUNqQixXQUFVO01BQ1YseUJBQXdCLEVBQzNCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy90YWJsZS90YWJsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0KCl7XG4gICAgdGFibGV7XG4gICAgICAgIHdpZHRoOiAxMDAlO1xuXG4gICAgICAgIHRoLmNoZWNrLWNvbHVtbiwgdGQuY2hlY2stY29sdW1ue1xuICAgICAgICAgICAgd2lkdGg6IDIuMmVtO1xuICAgICAgICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgICAgICAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgICAgICAgICAgIGlucHV0e1xuICAgICAgICAgICAgICAgIG1hcmdpbjogMCAwIDAgOHB4O1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6IDA7XG4gICAgICAgICAgICAgICAgdmVydGljYWwtYWxpZ246IHRleHQtdG9wO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG4gICAgfVxufSJdfQ== */"
+module.exports = ":host table {\n  width: 100%;\n}\n:host table th.check-column, :host table td.check-column {\n  width: 2.2em;\n  padding: 8px;\n  vertical-align: top;\n}\n:host table th.check-column input, :host table td.check-column input {\n  margin: 0 0 0 8px;\n  padding: 0;\n  vertical-align: text-top;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ZWIvYW5ndWxhci9zdXNjcmlwdG9ycy9zcmMvYXBwL2NvbXBvbmVudHMvdGFibGUvdGFibGUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvdGFibGUvdGFibGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0k7RUFDSSxXQUFBO0FDQVI7QURFUTtFQUNJLFlBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7QUNBWjtBRENZO0VBQ0ksaUJBQUE7RUFDQSxVQUFBO0VBQ0Esd0JBQUE7QUNDaEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3RhYmxlL3RhYmxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xuICAgIHRhYmxle1xuICAgICAgICB3aWR0aDogMTAwJTtcblxuICAgICAgICB0aC5jaGVjay1jb2x1bW4sIHRkLmNoZWNrLWNvbHVtbntcbiAgICAgICAgICAgIHdpZHRoOiAyLjJlbTtcbiAgICAgICAgICAgIHBhZGRpbmc6IDhweDtcbiAgICAgICAgICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgICAgICAgICBpbnB1dHtcbiAgICAgICAgICAgICAgICBtYXJnaW46IDAgMCAwIDhweDtcbiAgICAgICAgICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICAgICAgICAgIHZlcnRpY2FsLWFsaWduOiB0ZXh0LXRvcDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbn0iLCI6aG9zdCB0YWJsZSB7XG4gIHdpZHRoOiAxMDAlO1xufVxuOmhvc3QgdGFibGUgdGguY2hlY2stY29sdW1uLCA6aG9zdCB0YWJsZSB0ZC5jaGVjay1jb2x1bW4ge1xuICB3aWR0aDogMi4yZW07XG4gIHBhZGRpbmc6IDhweDtcbiAgdmVydGljYWwtYWxpZ246IHRvcDtcbn1cbjpob3N0IHRhYmxlIHRoLmNoZWNrLWNvbHVtbiBpbnB1dCwgOmhvc3QgdGFibGUgdGQuY2hlY2stY29sdW1uIGlucHV0IHtcbiAgbWFyZ2luOiAwIDAgMCA4cHg7XG4gIHBhZGRpbmc6IDA7XG4gIHZlcnRpY2FsLWFsaWduOiB0ZXh0LXRvcDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -706,7 +829,7 @@ var Status;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  add-user works!\n</p>\n"
+module.exports = "<form #mailForm=\"ngForm\">\n    <table class=\"form-table\">\n      <tr class=\"form-required\">\n        <th scope=\"row\"><label for=\"data_name\">Nombre<span class=\"description\"> (obligatorio)</span></label></th>\n        <td>\n          <input id=\"data_name\" class=\"regular-text\" type=\"text\" \n          [(ngModel)]=\"data.name\" name=\"name\" required>\n        </td>\n      </tr>\n      <tr class=\"form-required\">\n        <th scope=\"row\"><label for=\"last_name\">Apellido</label></th>\n        <td>\n          <input id=\"last_name\" class=\"regular-text\" type=\"text\" \n          [(ngModel)]=\"data.last_name\" name=\"last_name\">\n        </td>\n      </tr>\n      <tr class=\"form-required\">\n        <th scope=\"row\"><label for=\"data_company\">Company</label></th>\n        <td>\n          <input id=\"data_company\" class=\"regular-text\" type=\"text\" \n          [(ngModel)]=\"data.company\" name=\"company\">\n        </td>\n      </tr>\n      <tr class=\"form-required\">\n        <th scope=\"row\"><label for=\"data_email\">Mail<span class=\"description\"> (obligatorio)</span></label></th>\n        <td>\n          <input id=\"data_email\" class=\"regular-text\" type=\"text\" \n          [(ngModel)]=\"data.email\" name=\"email\" required>\n        </td>\n      </tr>\n      <tr class=\"form-required\">\n        <th scope=\"row\"><label for=\"data_List\">Listas de distribucion<span class=\"description\"> </span></label></th>\n        <td>\n          <input id=\"data_List\" class=\"regular-text\" type=\"text\" \n          [(ngModel)]=\"data.lists\" name=\"lists\">\n          <neo-select ></neo-select>\n        </td>\n      </tr>\n      <tr class=\"form-required\">\n        <th scope=\"row\"><label for=\"data_description\">Descripcion</label></th>\n        <td> \n          <textarea id=\"data_description\" class=\"regular-text\" rows=\"5\" \n          [(ngModel)]=\"data.description\" name=\"description\"></textarea>\n        </td>\n      </tr>\n      <tr class=\"form-required\">\n        <th scope=\"row\"><label for=\"data_status\">Estatus</label></th>\n        <td>\n            <select id=\"data_status\" [(ngModel)]=\"data.status\" name=\"status\">\n                <option *ngFor=\"let item of statusOptions | enumToArray\" [value]=\"item.id\">{{item.value}}</option>\n              </select>\n        </td>\n      </tr>\n      <tr>\n        <td>\n          <button class=\"button button-large\" (click)=\"onCancel()\">Cancelar</button>\n        </td>\n        <td class=\"regular-text\">\n          <button class=\"button button-primary right\" (click)=\"onSubmit()\" [disabled]=\"mailForm.invalid || mailForm.untouched\">Guardar</button>\n        </td>\n      </tr>\n    </table>\n  </form>\n"
 
 /***/ }),
 
@@ -732,6 +855,9 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddUserComponent", function() { return AddUserComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_mails_mails_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/mails/mails.service */ "./src/app/services/mails/mails.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_mails_mails_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/mails/mails.model */ "./src/app/services/mails/mails.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -742,10 +868,35 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var AddUserComponent = /** @class */ (function () {
-    function AddUserComponent() {
+    function AddUserComponent(mailService, router) {
+        this.mailService = mailService;
+        this.router = router;
+        this.data = { status: 0 };
+        this.statusOptions = src_app_services_mails_mails_model__WEBPACK_IMPORTED_MODULE_3__["StatusText"];
     }
     AddUserComponent.prototype.ngOnInit = function () {
+    };
+    AddUserComponent.prototype.onSubmit = function () {
+        var _this = this;
+        this.mailService.addMail(this.data)
+            .subscribe(function (obj) {
+            if (!!obj) {
+                _this.mailService.reset();
+                _this.onCancel();
+            }
+            else {
+                alert('Ya existe este correo');
+            }
+        }, function (e) {
+            alert('Formato incorrecto de mail');
+        });
+    };
+    AddUserComponent.prototype.onCancel = function () {
+        this.router.navigate(['/']);
     };
     AddUserComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -753,9 +904,144 @@ var AddUserComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./add-user.component.html */ "./src/app/pages/add-user/add-user.component.html"),
             styles: [__webpack_require__(/*! ./add-user.component.scss */ "./src/app/pages/add-user/add-user.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [src_app_services_mails_mails_service__WEBPACK_IMPORTED_MODULE_1__["MailsService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AddUserComponent);
     return AddUserComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/edit-user/edit-user.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/pages/edit-user/edit-user.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<form #mailForm=\"ngForm\">\n  <table class=\"form-table\" *ngIf=\"data else loading\">\n    <tr class=\"form-required\">\n      <th scope=\"row\"><label for=\"data_name\">Nombre<span class=\"description\"> (obligatorio)</span></label></th>\n      <td>\n        <input id=\"data_name\" class=\"regular-text\" type=\"text\" \n        [(ngModel)]=\"data.name\" name=\"name\">\n      </td>\n    </tr>\n    <tr class=\"form-required\">\n      <th scope=\"row\"><label for=\"last_name\">Apellido</label></th>\n      <td>\n        <input id=\"last_name\" class=\"regular-text\" type=\"text\" \n        [(ngModel)]=\"data.last_name\" name=\"last_name\">\n      </td>\n    </tr>\n    <tr class=\"form-required\">\n      <th scope=\"row\"><label for=\"data_company\">Company</label></th>\n      <td>\n        <input id=\"data_company\" class=\"regular-text\" type=\"text\" \n        [(ngModel)]=\"data.company\" name=\"company\">\n      </td>\n    </tr>\n    <tr class=\"form-required\">\n      <th scope=\"row\"><label for=\"data_email\">Mail<span class=\"description\"> (obligatorio)</span></label></th>\n      <td>\n        <input id=\"data_email\" class=\"regular-text\" type=\"text\" \n        [(ngModel)]=\"data.email\" name=\"email\">\n      </td>\n    </tr>\n    <tr class=\"form-required\">\n      <th scope=\"row\"><label for=\"data_List\">Listas de distribucion<span class=\"description\"> </span></label></th>\n      <td>\n          <p-autoComplete class=\"regular-text\" \n            [(ngModel)]=\"listValue\"\n            [suggestions]=\"resultsList\" \n            (completeMethod)=\"searchLists($event)\" \n            placeholder=\"Lists\"\n\n            name=\"list\"\n            (onDropdownClick)=\"handleDropdown($event)\"\n            ></p-autoComplete>\n            \n            \n            <!--\n              field=\"id\"\n           [multiple]=\"true\"\n           <input id=\"data_List\" class=\"regular-text\" type=\"text\" \n        [(ngModel)]=\"data.lists\" name=\"lists\"> -->\n        \n      </td>\n    </tr>\n    <tr class=\"form-required\">\n      <th scope=\"row\"><label for=\"data_description\">Descripcion</label></th>\n      <td> \n        <textarea id=\"data_description\" class=\"regular-text\" rows=\"5\" \n        [(ngModel)]=\"data.description\" name=\"description\"></textarea>\n      </td>\n    </tr>\n    <tr class=\"form-required\">\n      <th scope=\"row\"><label for=\"data_status\">Estatus</label></th>\n      <td>\n          <select id=\"data_status\" [(ngModel)]=\"data.status\" name=\"status\">\n              <option *ngFor=\"let item of statusOptions | enumToArray\" [value]=\"item.id\">{{item.value}}</option>\n            </select>\n      </td>\n    </tr>\n    <tr>\n      <td>\n        <button class=\"button button-large\" (click)=\"onCancel()\">Cancelar</button>\n      </td>\n      <td class=\"regular-text\">\n        <button class=\"button button-primary right\" (click)=\"onSubmit()\" [disabled]=\"mailForm.invalid || mailForm.untouched\">Guardar</button>\n      </td>\n    </tr>\n  </table>\n</form>\n\n<ng-template #loading>\n  Loading\n</ng-template>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/edit-user/edit-user.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/pages/edit-user/edit-user.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2VkaXQtdXNlci9lZGl0LXVzZXIuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/edit-user/edit-user.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/pages/edit-user/edit-user.component.ts ***!
+  \********************************************************/
+/*! exports provided: EditUserComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditUserComponent", function() { return EditUserComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_mails_mails_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/mails/mails.model */ "./src/app/services/mails/mails.model.ts");
+/* harmony import */ var src_app_services_mails_mails_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/mails/mails.service */ "./src/app/services/mails/mails.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var src_app_services_lists_lists_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/lists/lists.service */ "./src/app/services/lists/lists.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var EditUserComponent = /** @class */ (function () {
+    function EditUserComponent(mailService, listService, router, route) {
+        this.mailService = mailService;
+        this.listService = listService;
+        this.router = router;
+        this.route = route;
+        this.statusOptions = src_app_services_mails_mails_model__WEBPACK_IMPORTED_MODULE_1__["StatusText"];
+        this.dropdownList = [];
+        this.selectedItems = [];
+        this.resultsList = [
+            { id: '8', name: 'Carlos Matias' },
+            { id: '6', name: 'ignacio' },
+            { id: '1', name: 'mio' },
+            { id: '4', name: 'mononn ikni en casa' },
+            { id: '7', name: 'test' },
+            { id: '3', name: 'trea' }
+        ];
+    }
+    EditUserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.paramMap.subscribe(function (params) {
+            _this._id = params.get('id');
+            _this.loadMail();
+            // this.loadLists();
+        });
+    };
+    EditUserComponent.prototype.onSubmit = function () {
+        var _this = this;
+        this.mailService.updateMail(this.data)
+            .subscribe(function (obj) {
+            !!obj ? _this.onCancel() : alert('no actualizado');
+        });
+    };
+    EditUserComponent.prototype.onCancel = function () {
+        this.router.navigate(['/']);
+    };
+    EditUserComponent.prototype.searchLists = function (index) {
+        // console.log(index);
+        this.loadLists();
+    };
+    EditUserComponent.prototype.handleDropdown = function (event) {
+        this.loadLists(event.query);
+    };
+    EditUserComponent.prototype.loadMail = function () {
+        var _this = this;
+        this.mailService.getMail(this._id)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+            .subscribe(function (mail) {
+            _this.data = mail;
+        });
+    };
+    EditUserComponent.prototype.loadLists = function (textToFilter) {
+        var _this = this;
+        this.listService.getLists().subscribe(function (lists) {
+            if (lists.length) {
+                debugger;
+                _this.resultsList = lists.map(function (e) { return e.name; });
+                // this.originList = lists;
+                // this.resultsList = lists.map( e => e.name);
+                console.log(_this.resultsList);
+            }
+        });
+    };
+    EditUserComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'neo-edit-user',
+            template: __webpack_require__(/*! ./edit-user.component.html */ "./src/app/pages/edit-user/edit-user.component.html"),
+            styles: [__webpack_require__(/*! ./edit-user.component.scss */ "./src/app/pages/edit-user/edit-user.component.scss")]
+        }),
+        __metadata("design:paramtypes", [src_app_services_mails_mails_service__WEBPACK_IMPORTED_MODULE_2__["MailsService"],
+            src_app_services_lists_lists_service__WEBPACK_IMPORTED_MODULE_5__["ListsService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+    ], EditUserComponent);
+    return EditUserComponent;
 }());
 
 
@@ -846,6 +1132,42 @@ var MainComponent = /** @class */ (function () {
             src_app_services_mails_mails_service__WEBPACK_IMPORTED_MODULE_3__["MailsService"]])
     ], MainComponent);
     return MainComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pipes/enumToArray.ts":
+/*!**************************************!*\
+  !*** ./src/app/pipes/enumToArray.ts ***!
+  \**************************************/
+/*! exports provided: EnumToArrayPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EnumToArrayPipe", function() { return EnumToArrayPipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var EnumToArrayPipe = /** @class */ (function () {
+    function EnumToArrayPipe() {
+    }
+    EnumToArrayPipe.prototype.transform = function (data) {
+        return Object.keys(data).map(function (id) { return ({ id: id, value: data[id] || id }); });
+    };
+    EnumToArrayPipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({
+            name: 'enumToArray'
+        })
+    ], EnumToArrayPipe);
+    return EnumToArrayPipe;
 }());
 
 
@@ -997,8 +1319,27 @@ var MailsService = /** @class */ (function () {
         }
         return this._mails$.asObservable();
     };
+    MailsService.prototype.getMail = function (id) {
+        var mail = this._mails.filter(function (m) { return m.id === '' + id; });
+        if (mail.length) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(mail[0]);
+        }
+        var _mail$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.http.get(URL + '/wp-json/neomail/v1/mail/' + id)
+            .subscribe(function (data) {
+            _mail$.next(data);
+        });
+        return _mail$.asObservable();
+    };
     MailsService.prototype.reset = function () {
         this._mails = [];
+    };
+    MailsService.prototype.updateMail = function (data) {
+        data.date = data.date || data.created_at;
+        return this.http.put(URL + '/wp-json/neomail/v1/mails/upt/' + data.id + '?v=' + data.date, data);
+    };
+    MailsService.prototype.addMail = function (data) {
+        return this.http.post(URL + '/wp-json/neomail/v1/mails/add/', data);
     };
     MailsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1074,7 +1415,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /web/php/Angular/suscriptors/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/web/angular/suscriptors/src/main.ts */"./src/main.ts");
 
 
 /***/ })

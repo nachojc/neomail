@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\nneo-root ul {\n  display: flex;\n  align-items: center;\n}\nneo-root ul li.push {\n  flex: 1 1 auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93ZWIvcGhwL0FuZ3VsYXIvbGlzdHMvc3JjL3N0eWxlcy5zY3NzIiwic3JjL3N0eWxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDhFQUFBO0FBRUk7RUFDSSxhQUFBO0VBQ0EsbUJBQUE7QUNBUjtBRENRO0VBQ0ksY0FBQTtBQ0NaIiwiZmlsZSI6InNyYy9zdHlsZXMuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFlvdSBjYW4gYWRkIGdsb2JhbCBzdHlsZXMgdG8gdGhpcyBmaWxlLCBhbmQgYWxzbyBpbXBvcnQgb3RoZXIgc3R5bGUgZmlsZXMgKi9cbm5lby1yb290e1xuICAgIHVse1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBsaS5wdXNoe1xuICAgICAgICAgICAgZmxleDogMSAxIGF1dG87XG4gICAgICAgIH1cbiAgICB9XG5cblxuICAgIFxufSIsIi8qIFlvdSBjYW4gYWRkIGdsb2JhbCBzdHlsZXMgdG8gdGhpcyBmaWxlLCBhbmQgYWxzbyBpbXBvcnQgb3RoZXIgc3R5bGUgZmlsZXMgKi9cbm5lby1yb290IHVsIHtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cbm5lby1yb290IHVsIGxpLnB1c2gge1xuICBmbGV4OiAxIDEgYXV0bztcbn0iXX0= */", '', '']]
+module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\nneo-root ul {\n  display: flex;\n  align-items: center;\n}\nneo-root ul li.push {\n  flex: 1 1 auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy93ZWIvYW5ndWxhci9saXN0cy9zcmMvc3R5bGVzLnNjc3MiLCJzcmMvc3R5bGVzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsOEVBQUE7QUFFSTtFQUNJLGFBQUE7RUFDQSxtQkFBQTtBQ0FSO0FEQ1E7RUFDSSxjQUFBO0FDQ1oiLCJmaWxlIjoic3JjL3N0eWxlcy5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogWW91IGNhbiBhZGQgZ2xvYmFsIHN0eWxlcyB0byB0aGlzIGZpbGUsIGFuZCBhbHNvIGltcG9ydCBvdGhlciBzdHlsZSBmaWxlcyAqL1xubmVvLXJvb3R7XG4gICAgdWx7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGxpLnB1c2h7XG4gICAgICAgICAgICBmbGV4OiAxIDEgYXV0bztcbiAgICAgICAgfVxuICAgIH1cblxuXG4gICAgXG59IiwiLyogWW91IGNhbiBhZGQgZ2xvYmFsIHN0eWxlcyB0byB0aGlzIGZpbGUsIGFuZCBhbHNvIGltcG9ydCBvdGhlciBzdHlsZSBmaWxlcyAqL1xubmVvLXJvb3QgdWwge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxubmVvLXJvb3QgdWwgbGkucHVzaCB7XG4gIGZsZXg6IDEgMSBhdXRvO1xufSJdfQ== */", '', '']]
 
 /***/ }),
 
@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /web/php/Angular/lists/src/styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! /Users/web/angular/lists/src/styles.scss */"./src/styles.scss");
 
 
 /***/ })

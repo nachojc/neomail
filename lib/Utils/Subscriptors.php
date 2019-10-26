@@ -75,6 +75,33 @@ class Subscriptors extends Commonview {
 
 
   }
+  static function addElement($request){
+
+    global $wpdb; parent::init(self::PARAM);
+    
+    $name = strip_tags($request->get_param('name'));
+    $last_name = strip_tags($request->get_param('last_name')) || '';
+    $company = strip_tags($request->get_param('company')) || '';
+    $email = $request->get_param('email');
+    $lists = $request->get_param('lists') || [];
+    $description = strip_tags($request->get_param('description')) || '';
+    $status = $request->get_param('status') || 0;
+
+    $wpdb->insert(self::$table ,  array(
+      'name' => $name,
+      'last_name' => $last_name,
+      'company' => $company,
+      'email' => $email,
+      // 'lists' => $lists,
+      'description' => $description,
+      'status' => $status
+    ));
+    
+    $id = $wpdb->insert_id;
+
+    //TODO insert every list with the ID
+    return wp_send_json(array( "id" => $id), 200);
+  }
 
   static function getTotal($active = true){
     global $wpdb; 

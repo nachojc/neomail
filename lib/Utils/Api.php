@@ -18,6 +18,7 @@ class Api{
         register_rest_route( self::NAMESPACE, '/lists', self::getSimpleLists());
         
         register_rest_route( self::NAMESPACE, '/mails', self::getArrayMails());
+        register_rest_route( self::NAMESPACE, '/mails/add/', self::Mail_Add());
 
         register_rest_route( self::NAMESPACE, '/token/', self::getToken());
     }
@@ -169,7 +170,52 @@ class Api{
         );
     }
 
-
+    static function Mail_Add(){
+        return array(
+            'methods'  => 'POST',
+            'callback' => function( $request){
+                return Subscriptors::addElement($request);
+            },
+            'args'     => array(
+                'name' => array(
+                    'required'          => true,
+                    'sanitize_callback' => function($param, $request, $key) {
+                        return strip_tags( $param );
+                    }
+                ),
+                'last_name' => array(
+                    'required'          => false,
+                    'sanitize_callback' => function($param, $request, $key) {
+                        return strip_tags( $param );
+                    }
+                ),
+                'company' => array(
+                    'required'          => false,
+                    'sanitize_callback' => function($param, $request, $key) {
+                        return strip_tags( $param );
+                    }
+                ),
+                'email' => array(
+                    'required'          => true,
+                    'sanitize_callback' => function($param, $request, $key) {
+                        return filter_var($param, FILTER_VALIDATE_EMAIL)  ;
+                    }
+                ),
+                'description' => array(
+                    'required'          => false,
+                    'sanitize_callback' => function($param, $request, $key) {
+                        return strip_tags( $param );
+                    }
+                ),
+                'status' => array(
+                    'required'          => true,
+                    'sanitize_callback' => function($param, $request, $key) {
+                        return is_numeric( $param );
+                    }
+                )
+            )
+        );
+    }
 
 
 
