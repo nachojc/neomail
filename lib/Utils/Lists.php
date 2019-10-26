@@ -12,9 +12,9 @@ class Lists extends Commonview {
       <div class="wrap">
         <neo-root>Loading....</neo-root>
       </div>
-      <script type="text/javascript" src="'.Env::$assets_url.'/ang/runtime.js"></script>
-      <script type="text/javascript" src="'.Env::$assets_url.'/ang/polyfills.js"></script>
-      <script type="text/javascript" src="'.Env::$assets_url.'/ang/vendor.js"></script>
+      <script type="text/javascript" src="'.Env::$assets_url.'/ang/lists/runtime.js"></script>
+      <script type="text/javascript" src="'.Env::$assets_url.'/ang/lists/polyfills.js"></script>
+      <script type="text/javascript" src="'.Env::$assets_url.'/ang/lists/vendor.js"></script>
       <script type="text/javascript" src="'.Env::$assets_url.'/ang/lists/styles.js"></script>
       <script type="text/javascript" src="'.Env::$assets_url.'/ang/lists/main.js"></script>
     ';

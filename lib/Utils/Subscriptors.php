@@ -11,9 +11,9 @@ class Subscriptors extends Commonview {
     <div class="wrap">
       <neo-root>Loading....</neo-root>
     </div>
-    <script type="text/javascript" src="'.Env::$assets_url.'/ang/runtime.js"></script>
-    <script type="text/javascript" src="'.Env::$assets_url.'/ang/polyfills.js"></script>
-    <script type="text/javascript" src="'.Env::$assets_url.'/ang/vendor.js"></script>
+    <script type="text/javascript" src="'.Env::$assets_url.'/ang/suscriptors/runtime.js"></script>
+    <script type="text/javascript" src="'.Env::$assets_url.'/ang/suscriptors/polyfills.js"></script>
+    <script type="text/javascript" src="'.Env::$assets_url.'/ang/suscriptors/vendor.js"></script>
     <script type="text/javascript" src="'.Env::$assets_url.'/ang/suscriptors/styles.js"></script>
     <script type="text/javascript" src="'.Env::$assets_url.'/ang/suscriptors/main.js"></script>
     ';
