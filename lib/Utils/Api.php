@@ -71,7 +71,7 @@ class Api{
                     }
                 ),
                 'description' => array(
-                    'required'          => true,
+                    'required'          => false,
                     'sanitize_callback' => function($param, $request, $key) {
                         return strip_tags( $param );
                     }

@@ -80,8 +80,12 @@ static function getSimpleLists($request){
     $name = strip_tags($request->get_param('name'));
     $description = strip_tags($request->get_param('description'));
 
-    $wpdb->insert(self::$table ,  array('name' => $name, 'description' => $description));
-    
+    $values = array();
+    $values['name'] =  $name;
+    if ($description){
+      $values['description'] = $description;
+    }
+    $wpdb->insert(self::$table ,  $values);
     return wp_send_json(array( "id" => $wpdb->insert_id), 200);
   }
 
@@ -123,7 +127,6 @@ static function getSimpleLists($request){
 
     $wpdb->update(self::$table, array("name" => $name, "description"=> $description), array("id" => $id, 'updated_at'=> $token), array('%s', '%s'), array('%d', '%s'));
     return wp_send_json($wpdb->get_results('SELECT * FROM '.self::$table.' WHERE id='.$id));
-    // return $wpdb->last_query;
   }
 
 
